@@ -5,6 +5,7 @@ public class EasterEgg {
 		System.out.println("Hello World");
 //tests
 //Dab on walter
+		// SZECHUAN SAUCE MEME LORD DAB ON BRAIN
 	}
 
 }
