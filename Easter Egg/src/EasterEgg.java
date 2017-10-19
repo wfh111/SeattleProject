@@ -61,7 +61,8 @@ public class EasterEgg {
 	 * @return void - unused
 	 */
 	public static void giovannaMethod() {
-		System.out.println("I am Giovanna. I like watching Game of Thrones.");
+		System.out.println("I am Giovanna.");
+		System.out.println("I like watching Game of Thrones, and sleeping (-.-)Zzz…");
 		
 	}
 }
