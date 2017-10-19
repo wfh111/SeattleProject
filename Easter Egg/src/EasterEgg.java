@@ -12,13 +12,16 @@ public class EasterEgg {
 			c = s.next();
 		}
 		walterMethod();
-//		System.out.println("Hello World");
-////tests
-////Dab on walter
-//		// SZECHUAN SAUCE MEME LORD DAB ON BRAIN!! v2!! - Dino
+		brianMethod();
+
 	}
 	public static void walterMethod() {
 		System.out.println("My name is Walter Hanson");
 		System.out.println("I like the Seahawks and Mariners");
+	}
+	public static void brianMethod() {
+		System.out.println("System Online.");
+		System.out.println("Welcome back Brian Khang.");
+		System.out.println("Loading favorite game preferences and uncaging the panda and delivering sushi.");
 	}
 }
