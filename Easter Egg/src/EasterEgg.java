@@ -1,7 +1,7 @@
 import java.util.*;
 /*
  * This is Iteration 0 of an Easter Egg. When triggered the Easter Egg
- * will present the user with information about the team
+ * will present the user with information about the team.
  * 
  * User Stories:
  * As a user I want to see something interesting when I trigger an Easter Egg
@@ -57,6 +57,7 @@ public class EasterEgg {
 	
 	/*
 	 * This method prints out Giovanna's name and a fun fact about her
+	 * @author Giovanna
 	 * @return void - unused
 	 */
 	public static void giovannaMethod() {
