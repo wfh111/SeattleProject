@@ -39,6 +39,7 @@ public class EasterEgg {
 		System.out.println("We are... TEAM SEATTLE!");
 		walterMethod();
 		brianMethod();
+		methodDino(); 
 		//Print information about team member Giovanna
 		giovannaMethod():
 
@@ -53,6 +54,16 @@ public class EasterEgg {
 		System.out.println("System Online.");
 		System.out.println("Welcome back Brian Khang.");
 		System.out.println("Loading favorite game preferences and uncaging the panda and delivering sushi.");
+	}
+	
+	/*
+	 * This method prints out Dino's name and a fun fact about him
+	 * @author Dino
+	 * @return void - unused
+	 */
+	public static void methodDino() {
+		System.out.println("My name is Dino Hadzic");
+		System.out.println("I like cheese and playing Old School RuneScape");
 	}
 	
 	/*
