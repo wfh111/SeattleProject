@@ -22,6 +22,6 @@ public class EasterEgg {
 	public static void brianMethod() {
 		System.out.println("System Online.");
 		System.out.println("Welcome back Brian Khang.");
-		System.out.println("Loading favorite game preferences and uncaging the panda and delivering sushi.");
+		System.out.println("Loading Quote: I like watching pandas fly across the sky.");
 	}
 }
