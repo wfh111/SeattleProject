@@ -60,7 +60,7 @@ public class EasterEgg {
 	public static void brianMethod() {
 		System.out.println("System Online.");
 		System.out.println("Welcome back Brian Khang.");
-		System.out.println("Loading Quote: I like watching pandas fly across the sky.");
+		System.out.println("Loading Quote: I like watching pandas fly across the sky! Derp");
 	}
 	
 	/*
