@@ -41,7 +41,7 @@ public class EasterEgg {
 		brianMethod();
 		methodDino(); 
 		//Print information about team member Giovanna
-		giovannaMethod():
+		giovannaMethod();
 
 	}
 	
@@ -50,6 +50,11 @@ public class EasterEgg {
 		System.out.println("I like the Seahawks and Mariners");
 	}
 	
+	/*
+	 * This methods prints out Brian's name and a random fun fact.
+	 * @author Brian
+	 * @return void - unused
+	 */
 	public static void brianMethod() {
 		System.out.println("System Online.");
 		System.out.println("Welcome back Brian Khang.");
