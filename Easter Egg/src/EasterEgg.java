@@ -15,9 +15,8 @@ import java.util.*;
 public class EasterEgg {
 	/*
 	 * This method intereacts with the user and then calls each
-	 * team member's method to display information to the user
-	 * @param args 
-	 * @return void
+	 * team member's method to display information to the user.
+	 * @param args grabs arguments from command line.
 	 */
 	public static void main(String[] args) {
 		/*
@@ -41,10 +40,13 @@ public class EasterEgg {
 		brianMethod();
 		methodDino(); 
 		//Print information about team member Giovanna
-		giovannaMethod():
+		giovannaMethod();
 
 	}
-	
+	/*
+	 * This method prints out Walter's name and a fun fact about him.
+	 * @author Walter Hanson
+	 */
 	public static void walterMethod() {
 		System.out.println("My name is Walter Hanson");
 		System.out.println("I like the Seahawks and Mariners");
@@ -57,7 +59,7 @@ public class EasterEgg {
 	}
 	
 	/*
-	 * This method prints out Dino's name and a fun fact about him
+	 * This method prints out Dino's name and a fun fact about him.
 	 * @author Dino
 	 * @return void - unused
 	 */
@@ -67,7 +69,7 @@ public class EasterEgg {
 	}
 	
 	/*
-	 * This method prints out Giovanna's name and a fun fact about her
+	 * This method prints out Giovanna's name and a fun fact about her.
 	 * @author Giovanna
 	 * @return void - unused
 	 */
