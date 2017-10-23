@@ -53,10 +53,15 @@ public class EasterEgg {
 		System.out.println("I like the Seahawks and Mariners");
 	}
 	
+	/*
+	 * This methods prints out Brian's name and a random fun fact.
+	 * @author Brian
+	 * @return void - unused
+	 */
 	public static void brianMethod() {
 		System.out.println("System Online.");
 		System.out.println("Welcome back Brian Khang.");
-		System.out.println("Loading favorite game preferences and uncaging the panda and delivering sushi.");
+		System.out.println("Loading Quote: I like watching pandas fly across the sky! Derp");
 	}
 	
 	/*
