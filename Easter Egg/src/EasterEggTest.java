@@ -1,11 +1,15 @@
-import static org.junit.Assert.*;
-
+import org.junit.Before;
 import org.junit.Test;
 
 public class EasterEggTest {
 	
 	private EasterEgg e;
 
+	@Before
+	public void setUp() {
+		e = new EasterEgg();
+	}
+	
 	@Test
 	public void testMain() {
 //		fail("Not yet implemented");
@@ -28,7 +32,7 @@ public class EasterEggTest {
 	@Test
 	public void testMethodDino() {
 //		fail("Not yet implemented");
-		e.methodDino();
+		e.dinoMethod();
 	}
 
 	@Test

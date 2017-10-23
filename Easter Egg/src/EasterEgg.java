@@ -38,14 +38,15 @@ public class EasterEgg {
 		System.out.println("We are... TEAM SEATTLE!");
 		walterMethod();
 		brianMethod();
-		methodDino(); 
+		dinoMethod(); 
 		//Print information about team member Giovanna
 		giovannaMethod();
 		s.close();
 
 	}
 	/*
-	 * This method prints out Walter's name and a fun fact about him.
+	 * This method prints out Walter's name and a fun fact about him when 
+	 * easter egg has been triggered.
 	 * @author Walter Hanson
 	 */
 	public static void walterMethod() {
@@ -69,7 +70,7 @@ public class EasterEgg {
 	 * @author Dino
 	 * @return void - unused
 	 */
-	public static void methodDino() {
+	public static void dinoMethod() {
 		System.out.println("My name is Dino Hadzic");
 		System.out.println("I like cheese and playing Old School RuneScape");
 	}
