@@ -41,6 +41,7 @@ public class EasterEgg {
 		methodDino(); 
 		//Print information about team member Giovanna
 		giovannaMethod();
+		s.close();
 
 	}
 	/*
