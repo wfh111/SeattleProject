@@ -55,6 +55,12 @@ public class TestGui {
 		frame.getContentPane().add(lblCloudStatusOn);
 		
 		JButton btnNewButton = new JButton("History");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				HistoryFrame frame1 = new HistoryFrame();
+				frame1.setVisible(true);
+			}
+		});
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Estimator");
