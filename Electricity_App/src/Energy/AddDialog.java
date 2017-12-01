@@ -1,3 +1,4 @@
+package Energy;
 import java.awt.BorderLayout;
 import java.awt.Choice;
 import java.awt.FlowLayout;
