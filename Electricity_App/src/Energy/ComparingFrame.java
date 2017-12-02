@@ -10,6 +10,9 @@ import java.awt.GridBagLayout;
 import javax.swing.JButton;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JList;
 import javax.swing.ListSelectionModel;
 import javax.swing.JComboBox;
@@ -19,6 +22,7 @@ import javax.swing.JSpinner;
 import javax.swing.JTree;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.DefaultComboBoxModel;
 
 public class ComparingFrame extends JFrame {
 
@@ -61,16 +65,82 @@ public class ComparingFrame extends JFrame {
 		contentPane.setLayout(null);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(10, 11, 123, 20);
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Incandescent", "Halogen", "LED", "CFL"}));
+		comboBox.setBounds(10, 11, 112, 20);
 		contentPane.add(comboBox);
 		
+		comboBox.addActionListener(new ActionListener () {
+		    public void actionPerformed(ActionEvent e) {
+		        int indexChosen = comboBox.getSelectedIndex();
+		        
+		        switch (indexChosen) {
+		        case 0:
+		        	System.out.println("Box 1 Chose Incandescent");
+		        	break;
+		        case 1:
+		        	System.out.println("Box 1 Chose Halogen");
+		        	break;
+		        case 2:
+		        	System.out.println("Box 1 Chose LED");
+		        	break;
+		        case 3:
+		        	System.out.println("Box 1 Chose CFL");
+		        	break;
+		        }
+		    }
+		});
+		
 		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Incandescent", "Halogen", "LED", "CFL"}));
 		comboBox_1.setBounds(159, 11, 123, 20);
 		contentPane.add(comboBox_1);
 		
+		comboBox_1.addActionListener(new ActionListener () {
+		    public void actionPerformed(ActionEvent e) {
+		        int indexChosen = comboBox_1.getSelectedIndex();
+		        
+		        switch (indexChosen) {
+		        case 0:
+		        	System.out.println("Box 2 Chose Incandescent");
+		        	break;
+		        case 1:
+		        	System.out.println("Box 2 Chose Halogen");
+		        	break;
+		        case 2:
+		        	System.out.println("Box 2 Chose LED");
+		        	break;
+		        case 3:
+		        	System.out.println("Box 2 Chose CFL");
+		        	break;
+		        }
+		    }
+		});
+		
 		JComboBox comboBox_2 = new JComboBox();
+		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Incandescent", "Halogen", "LED", "CFL"}));
 		comboBox_2.setBounds(301, 11, 123, 20);
 		contentPane.add(comboBox_2);
+		
+		comboBox_2.addActionListener(new ActionListener () {
+		    public void actionPerformed(ActionEvent e) {
+		        int indexChosen = comboBox_2.getSelectedIndex();
+		        
+		        switch (indexChosen) {
+		        case 0:
+		        	System.out.println("Box 3 Chose Incandescent");
+		        	break;
+		        case 1:
+		        	System.out.println("Box 3 Chose Halogen");
+		        	break;
+		        case 2:
+		        	System.out.println("Box 3 Chose LED");
+		        	break;
+		        case 3:
+		        	System.out.println("Box 3 Chose CFL");
+		        	break;
+		        }
+		    }
+		});
 		
 		JButton btnHome = new JButton("Home");
 		btnHome.setBounds(335, 228, 89, 23);
