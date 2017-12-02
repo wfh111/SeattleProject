@@ -14,6 +14,8 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
+import javax.swing.JScrollBar;
+import javax.swing.JSpinner;
 
 public class NumCompareFrame extends JFrame {
 
@@ -63,8 +65,8 @@ public class NumCompareFrame extends JFrame {
 		radioButton_2.setBounds(127, 106, 109, 23);
 		contentPane.add(radioButton_2);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(289, 57, 28, 20);
-		contentPane.add(comboBox);
+		JSpinner spinner = new JSpinner();
+		spinner.setBounds(130, 170, 29, 20);
+		contentPane.add(spinner);
 	}
 }
