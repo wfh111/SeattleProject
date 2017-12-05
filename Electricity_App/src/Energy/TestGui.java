@@ -21,7 +21,7 @@ public class TestGui {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void mailipsn(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -64,6 +64,12 @@ public class TestGui {
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Estimator");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ComparingFrame frame = new ComparingFrame();
+				frame.setVisible(true);
+			}
+		});
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JMenuBar menuBar = new JMenuBar();

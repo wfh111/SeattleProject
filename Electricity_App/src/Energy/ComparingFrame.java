@@ -36,6 +36,7 @@ public class ComparingFrame extends JFrame {
 	private JTextField textField_6;
 	private JTextField textField_7;
 	private JTextField textField_8;
+	private JFrame frame;
 
 	/**
 	 * Launch the application.
@@ -143,12 +144,20 @@ public class ComparingFrame extends JFrame {
 		});
 		
 		JButton btnHome = new JButton("Home");
+		btnHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				TestGui homePage = new TestGui();
+				homePage.frame.setVisible(true);
+				contentPane.setVisible(false);
+			}
+		});
 		btnHome.setBounds(335, 228, 89, 23);
 		contentPane.add(btnHome);
 		
 		JToggleButton tglbtnCalc = new JToggleButton("Compute");
 		tglbtnCalc.setBounds(10, 228, 121, 23);
 		contentPane.add(tglbtnCalc);
+		
 		
 		JLabel lblInstallationCost = new JLabel("Installation cost:");
 		lblInstallationCost.setBounds(10, 42, 123, 14);
