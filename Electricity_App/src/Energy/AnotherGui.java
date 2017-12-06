@@ -108,7 +108,7 @@ public class AnotherGui extends JFrame {
 		btnHistory.setBounds(0, 43, 428, 59);
 		frame.getContentPane().add(btnHistory);
 		
-		JButton btnEstimator = new JButton("Estimator");
+		JButton btnEstimator = new JButton("Savings Estimator");
 		btnEstimator.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ComparingFrame frame2 = new ComparingFrame(myHistory);
