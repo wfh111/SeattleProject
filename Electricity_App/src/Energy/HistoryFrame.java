@@ -68,6 +68,7 @@ public class HistoryFrame extends JFrame implements Observer {
 		historyFrame.setBounds(100, 100, 865, 487);
 		historyFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		historyFrame.getContentPane().setLayout(new BoxLayout(historyFrame.getContentPane(), BoxLayout.X_AXIS));
+		historyFrame.setResizable(false);
 		
 		JPanel panel = new JPanel();
 		historyFrame.getContentPane().add(panel);
