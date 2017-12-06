@@ -23,6 +23,11 @@ import javax.swing.JScrollBar;
 import javax.swing.JSpinner;
 import javax.swing.ButtonGroup;
 
+/**
+ * 
+ * @author Dino Hadzic
+ *
+ */
 public class NumCompareFrame extends JFrame {
 
 	private JPanel contentPane;

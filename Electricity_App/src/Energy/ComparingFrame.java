@@ -52,6 +52,7 @@ import java.awt.Insets;
 /**
  * 
  * @author giovannagraciani
+ * @author Dino Hadzic
  *
  */
 public class ComparingFrame extends JFrame {
@@ -104,6 +105,7 @@ public class ComparingFrame extends JFrame {
 	/**
 	 * 
 	 * @author giovannagraciani
+	 * @author Dino Hadzic
 	 * @param calc
 	 */
 	private void initialize(Calculator calc) {

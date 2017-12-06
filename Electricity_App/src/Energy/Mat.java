@@ -1,6 +1,9 @@
 package Energy;
 
 
+/**
+ * @author Dino Hadzic
+ */
 public class Mat {
 	
 	private double KwH;
