@@ -50,7 +50,7 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 public class ComparingFrame extends JFrame {
-	
+	//comment
 	private JFrame compareFrame;
 	private EnergyHistory myHistory;
 	private JPanel contentPane;
