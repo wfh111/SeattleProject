@@ -66,7 +66,7 @@ public class HistoryFrame extends JFrame implements Observer {
 		historyFrame.setVisible(true);
 		historyFrame.setTitle("Electricity History");
 		historyFrame.setBounds(100, 100, 865, 487);
-		historyFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		historyFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		historyFrame.getContentPane().setLayout(new BoxLayout(historyFrame.getContentPane(), BoxLayout.X_AXIS));
 		
 		JPanel panel = new JPanel();
@@ -111,7 +111,9 @@ public class HistoryFrame extends JFrame implements Observer {
 		JButton btnHome = new JButton("Home");
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				TestGui frame1 = new TestGui();
 				historyFrame.setVisible(false);
+				frame1.setVisible(true);
 			}
 		});
 		btnHome.setBounds(683, 224, 97, 25);
