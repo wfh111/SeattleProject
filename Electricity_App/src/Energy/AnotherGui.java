@@ -105,7 +105,7 @@ public class AnotherGui extends JFrame {
 				HistoryFrame frame1 = new HistoryFrame(myHistory);
 			}
 		});
-		btnHistory.setBounds(0, 94, 428, 59);
+		btnHistory.setBounds(0, 43, 428, 59);
 		frame.getContentPane().add(btnHistory);
 		
 		JButton btnEstimator = new JButton("Estimator");
@@ -114,7 +114,7 @@ public class AnotherGui extends JFrame {
 				ComparingFrame frame2 = new ComparingFrame(myHistory);
 			}
 		});
-		btnEstimator.setBounds(0, 40, 428, 54);
+		btnEstimator.setBounds(0, 100, 428, 54);
 		frame.getContentPane().add(btnEstimator);
 		
 		JLabel lblCloudSyncIs = new JLabel("Cloud Sync is Currently: ON");
