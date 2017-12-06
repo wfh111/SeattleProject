@@ -128,7 +128,7 @@ public class AnotherGui extends JFrame {
 		btnSync.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (mySync == true) {
-					JOptionPane.showMessageDialog(null, "Data has been synced to the cloud.");
+					JOptionPane.showMessageDialog(null, "We apologize. Our cloud system is currently under repair.");
 				} else {
 					JOptionPane.showMessageDialog(null, "Please make sure Cloud Sync is turned on.");
 				}
