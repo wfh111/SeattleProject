@@ -26,6 +26,11 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
+/**
+ * 
+ * @author Walter Hanson
+ *
+ */
 public class HistoryFrame extends JFrame implements Observer {
 
 	private JFrame historyFrame;
