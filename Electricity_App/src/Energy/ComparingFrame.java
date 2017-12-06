@@ -1,8 +1,3 @@
-/*
- * Dino done did this shit mane. REEEEEEEEEEEE
- * 
- */
-
 package Energy;
 
 import java.awt.BorderLayout;
@@ -54,6 +49,11 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
+/**
+ * 
+ * @author giovannagraciani
+ *
+ */
 public class ComparingFrame extends JFrame {
 	//comment
 	private JFrame compareFrame;
@@ -91,6 +91,8 @@ public class ComparingFrame extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @author giovannagraciani
+	 * @param myHistory
 	 */
 	public ComparingFrame(EnergyHistory myHistory) {
 		//myHistory.addObserver(this);
@@ -99,6 +101,11 @@ public class ComparingFrame extends JFrame {
 		
 	}
 	
+	/**
+	 * 
+	 * @author giovannagraciani
+	 * @param calc
+	 */
 	private void initialize(Calculator calc) {
 		compareFrame = new JFrame();
 		compareFrame.setVisible(true);
