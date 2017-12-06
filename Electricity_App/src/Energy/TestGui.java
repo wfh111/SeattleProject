@@ -14,11 +14,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class TestGui extends JFrame{
-
+	//comment
 	private JFrame frame;
 	private boolean aTrigger = true;
-	private boolean holdFrame = false;
-	private HistoryFrame myHistory;
+	private EnergyHistory myHistory;
 
 
 	/**
@@ -33,7 +32,7 @@ public class TestGui extends JFrame{
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			}
+			} //comment
 		});
 	}
 
@@ -41,6 +40,7 @@ public class TestGui extends JFrame{
 	 * Create the application.
 	 */
 	public TestGui() {
+		myHistory = new EnergyHistory();
 		initialize();
 	}
 
@@ -61,15 +61,7 @@ public class TestGui extends JFrame{
 		JButton btnNewButton = new JButton("History");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(holdFrame == false) {
-					myHistory = new HistoryFrame();
-					holdFrame = true;
-				} else {
-					myHistory.setVisible(true);
-				}
-				HistoryFrame frame1 = new HistoryFrame();
-				frame1.setVisible(true);
-				frame.setVisible(false);
+				HistoryFrame frame1 = new HistoryFrame(myHistory);
 			}
 		});
 		frame.getContentPane().add(btnNewButton);
@@ -78,9 +70,6 @@ public class TestGui extends JFrame{
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent g) {
 				ComparingFrame frame2 = new ComparingFrame();
-				frame2.setVisible(true);
-				frame.setVisible(false);
-				
 			}
 		});
 		frame.getContentPane().add(btnNewButton_1);

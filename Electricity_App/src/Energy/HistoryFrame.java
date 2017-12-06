@@ -39,7 +39,7 @@ public class HistoryFrame extends JFrame implements Observer {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					HistoryFrame window = new HistoryFrame();
+					HistoryFrame window = new HistoryFrame(new EnergyHistory());
 					window.historyFrame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -51,8 +51,8 @@ public class HistoryFrame extends JFrame implements Observer {
 	/**
 	 * Create the application.
 	 */
-	public HistoryFrame() {
-		myHistory = new EnergyHistory();
+	public HistoryFrame(EnergyHistory theHistory) {
+		myHistory = theHistory;
 		myHistory.addObserver(this);
 		myTextArea = new JTextArea();
 		initialize();
@@ -80,7 +80,6 @@ public class HistoryFrame extends JFrame implements Observer {
 				delete.setVisible(true);
 			}
 		});
-		btnDelete.setEnabled(false);
 		btnDelete.setBounds(683, 123, 97, 25);
 		panel.add(btnDelete);
 		
@@ -92,7 +91,6 @@ public class HistoryFrame extends JFrame implements Observer {
 				myHistory.addObserver(edit);
 			}
 		});
-		btnEdit.setEnabled(false);
 		btnEdit.setBounds(683, 175, 97, 25);
 		panel.add(btnEdit);
 		
@@ -101,8 +99,6 @@ public class HistoryFrame extends JFrame implements Observer {
 			public void actionPerformed(ActionEvent e) {
 				AddDialog add = new AddDialog(myHistory);
 				add.setVisible(true);
-				btnDelete.setEnabled(true);
-				btnEdit.setEnabled(true);
 			}
 		});
 		btnAdd.setBounds(683, 69, 97, 25);
@@ -111,9 +107,7 @@ public class HistoryFrame extends JFrame implements Observer {
 		JButton btnHome = new JButton("Home");
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				TestGui frame1 = new TestGui();
 				historyFrame.setVisible(false);
-				frame1.setVisible(true);
 			}
 		});
 		btnHome.setBounds(683, 224, 97, 25);
@@ -125,6 +119,7 @@ public class HistoryFrame extends JFrame implements Observer {
 		
 		myTextArea.setEditable(false);
 		scrollPane.setViewportView(myTextArea);
+		displayData();
 	}
 
 	@Override

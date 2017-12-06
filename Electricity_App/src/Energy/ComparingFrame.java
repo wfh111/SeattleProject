@@ -148,9 +148,7 @@ public class ComparingFrame extends JFrame {
 		JButton btnHome = new JButton("Home");
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				TestGui frame1 = new TestGui();
 				compareFrame.setVisible(false);
-				frame1.setVisible(true);
 				
 			}
 		});
