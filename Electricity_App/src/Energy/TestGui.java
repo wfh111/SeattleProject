@@ -69,7 +69,7 @@ public class TestGui extends JFrame{
 		JButton btnNewButton_1 = new JButton("Estimator");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent g) {
-				ComparingFrame frame2 = new ComparingFrame();
+				ComparingFrame frame2 = new ComparingFrame(myHistory);
 			}
 		});
 		frame.getContentPane().add(btnNewButton_1);

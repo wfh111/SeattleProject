@@ -26,6 +26,11 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
+/**
+ * 
+ * @author Walter Hanson
+ *
+ */
 public class HistoryFrame extends JFrame implements Observer {
 
 	private JFrame historyFrame;
@@ -68,6 +73,7 @@ public class HistoryFrame extends JFrame implements Observer {
 		historyFrame.setBounds(100, 100, 865, 487);
 		historyFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		historyFrame.getContentPane().setLayout(new BoxLayout(historyFrame.getContentPane(), BoxLayout.X_AXIS));
+		historyFrame.setResizable(false);
 		
 		JPanel panel = new JPanel();
 		historyFrame.getContentPane().add(panel);
@@ -132,9 +138,9 @@ public class HistoryFrame extends JFrame implements Observer {
 		myTextArea.setText(null);
 		ArrayList<Integer> months = myHistory.getMonths();
 		ArrayList<Integer> years = myHistory.getYears();
-		ArrayList<Double> kWh = myHistory.getKwh();
+		ArrayList<Integer> kWh = myHistory.getKwh();
 		for(int el: months) {
-			String text = convertMonth(months.get(idx)) + ", " + Integer.toString(years.get(idx)) + ", " + Double.toString(kWh.get(idx)) + " kWh\n";
+			String text = convertMonth(months.get(idx)) + ", " + Integer.toString(years.get(idx)) + ", " + Integer.toString(kWh.get(idx)) + " kWh\n";
 //			System.out.println(text);
 			myTextArea.append(text);
 			idx++;
