@@ -111,7 +111,7 @@ public class AnotherGui extends JFrame {
 		JButton btnEstimator = new JButton("Estimator");
 		btnEstimator.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ComparingFrame frame2 = new ComparingFrame();
+				ComparingFrame frame2 = new ComparingFrame(myHistory);
 			}
 		});
 		btnEstimator.setBounds(0, 40, 428, 54);
