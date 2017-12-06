@@ -7,10 +7,14 @@ public class Mat {
 	
 	private double price;
 	
-	private String type;
+	private Material type;
+	
+	public enum Material {
+		HALOGEN, INCANDESCENT, LED, CFL
+	}
 	
 	
-	public Mat(String type, double KwH, double price) {
+	public Mat(Material type, double KwH, double price) {
 		this.KwH = KwH;
 		this.type = type;
 		this.price = price;
@@ -24,7 +28,7 @@ public class Mat {
 		return price;
 	}
 	
-	public String getMaterialType() {
+	public Material getMaterialType() {
 		return type;
 	}
 	

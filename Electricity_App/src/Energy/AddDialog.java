@@ -18,7 +18,7 @@ public class AddDialog extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private String myMonth;
 	private int myYear;
-	private double mykWh;
+	private int mykWh;
 	private Choice mySelectYear;
 	private Choice mySelectMonth;
 	private EnergyHistory myHist;
@@ -43,7 +43,7 @@ public class AddDialog extends JDialog {
 	public AddDialog(EnergyHistory theHist) {
 		myMonth = "January";
 		myYear = 2000;
-		mykWh = 0.0;
+		mykWh = 0;
 		myHist = theHist;
 		myIntMonth = 1;
 		mySelectMonth = new Choice();
@@ -52,7 +52,7 @@ public class AddDialog extends JDialog {
 		mykWhField.setValue(0);
 		initialize();
 	}
-	public AddDialog(int theMonth, int theYear, double thekWh, EnergyHistory theHist) {
+	public AddDialog(int theMonth, int theYear, int thekWh, EnergyHistory theHist) {
 		myIntMonth = theMonth;
 		myYear = theYear;
 		mykWh = thekWh;
@@ -109,7 +109,7 @@ public class AddDialog extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 				myMonth = mySelectMonth.getSelectedItem();
 				myYear = Integer.parseInt(mySelectYear.getSelectedItem());
-				mykWh = Double.parseDouble(mykWhField.getText());
+				mykWh = Integer.parseInt(mykWhField.getText());
 				myHist.add(myMonth, myYear, mykWh);
 				setVisible(false);
 			}
