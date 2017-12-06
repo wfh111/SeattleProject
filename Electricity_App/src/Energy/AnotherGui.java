@@ -20,7 +20,7 @@ import java.awt.Color;
 /**
  * @Author Brian Khang
  * The main GUI. This class will create a frame where the user can choose to create an estimate, look at their history
- * or sync their data to a cloud service.
+ * or sync their data to a cloud service. Application can be used offline.
  */
 public class AnotherGui extends JFrame {
 
