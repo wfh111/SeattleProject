@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class TestGui extends JFrame{
-
+	//comment
 	private JFrame frame;
 	private boolean aTrigger = true;
 
