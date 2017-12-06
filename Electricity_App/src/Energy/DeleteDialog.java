@@ -88,7 +88,7 @@ public class DeleteDialog extends JDialog {
 		int i = 0;
 		ArrayList<Integer> month = theEnergy.getMonths();
 		ArrayList<Integer> year = theEnergy.getYears();
-		ArrayList<Double> kWh = theEnergy.getKwh();
+		ArrayList<Integer> kWh = theEnergy.getKwh();
 		for(; i < month.size(); i++) {
 			String strMonth = convertMonth(month.get(i));
 			theData.add(strMonth + ", " + Integer.toString(year.get(i)) + ", " + Double.toString(kWh.get(i)) + " kWh");

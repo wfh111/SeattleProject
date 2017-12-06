@@ -23,7 +23,7 @@ public class EditDialog extends JDialog implements Observer{
 	private final JPanel contentPanel = new JPanel();
 	private int myMonth;
 	private int myYear;
-	private double mykWh;
+	private int mykWh;
 	private Choice myData;
 	private EnergyHistory myEnergy;
 	
@@ -104,7 +104,7 @@ public class EditDialog extends JDialog implements Observer{
 		myData.removeAll();
 		ArrayList<Integer> month = myEnergy.getMonths();
 		ArrayList<Integer> year = myEnergy.getYears();
-		ArrayList<Double> kWh = myEnergy.getKwh();
+		ArrayList<Integer> kWh = myEnergy.getKwh();
 		for(; i < month.size(); i++) {
 			String strMonth = convertMonth(month.get(i));
 			myData.add(strMonth + ", " + Integer.toString(year.get(i)) + ", " + Double.toString(kWh.get(i)) + " kWh");
