@@ -17,6 +17,9 @@ public class TestGui extends JFrame{
 	//comment
 	private JFrame frame;
 	private boolean aTrigger = true;
+	private boolean holdFrame = false;
+	private HistoryFrame myHistory;
+
 
 	/**
 	 * Launch the application.
@@ -58,6 +61,12 @@ public class TestGui extends JFrame{
 		JButton btnNewButton = new JButton("History");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(holdFrame == false) {
+					myHistory = new HistoryFrame();
+					holdFrame = true;
+				} else {
+					myHistory.setVisible(true);
+				}
 				HistoryFrame frame1 = new HistoryFrame();
 				frame1.setVisible(true);
 				frame.setVisible(false);
