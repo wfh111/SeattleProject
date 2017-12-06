@@ -9,18 +9,18 @@ import java.util.Observable;
 public class EnergyHistory extends Observable{
 	private ArrayList<Integer> myMonths;
 	private ArrayList<Integer> myYears;
-	private ArrayList<Double> myKwh;
+	private ArrayList<Integer> myKwh;
 	public double avgConsumption;
 	//comment
 	
 	public EnergyHistory() {
 		myMonths = new ArrayList<Integer>();
 		myYears = new ArrayList<Integer>();
-		myKwh = new ArrayList<Double>();
+		myKwh = new ArrayList<Integer>();
 		avgConsumption = 0;
 	}
 	
-	public void add(String theMonth, int theYear, double theKwh) {
+	public void add(String theMonth, int theYear, int theKwh) {
 		int monthNum = findMonthInt(theMonth);
 		int idx = findLocation(monthNum, theYear);
 		myMonths.add(idx, monthNum);
@@ -47,7 +47,7 @@ public class EnergyHistory extends Observable{
 	    notifyObservers();
 	}
 	
-	public void edit(int theMonth, int theYear, double theKwh, int theIdx) {
+	public void edit(int theMonth, int theYear, int theKwh, int theIdx) {
 		myMonths.set(theIdx, theMonth);
 		myYears.set(theIdx, theYear);
 		myKwh.set(theIdx, theKwh);
@@ -61,8 +61,8 @@ public class EnergyHistory extends Observable{
 		return (ArrayList<Integer>) myYears.clone();
 	}
 	
-	public ArrayList<Double> getKwh() {
-		return (ArrayList<Double>) myKwh.clone();
+	public ArrayList<Integer> getKwh() {
+		return (ArrayList<Integer>) myKwh.clone();
 	}
 	
 	public boolean isEmpty() {

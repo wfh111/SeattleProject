@@ -52,7 +52,7 @@ import java.awt.Insets;
 public class ComparingFrame extends JFrame {
 	//comment
 	private JFrame compareFrame;
-	private EnergyHistory myHistory;
+	//private EnergyHistory myHistory;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
@@ -70,7 +70,7 @@ public class ComparingFrame extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -81,22 +81,19 @@ public class ComparingFrame extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
 	 */
-	public ComparingFrame() {
-		myHistory = new EnergyHistory();
+	public ComparingFrame(EnergyHistory myHistory) {
 		//myHistory.addObserver(this);
-		myHistory.add("April", 2001, 123);
-		myHistory.add("June", 2001, 322);
-		myHistory.add("December", 2001, 232);
-		initialize();
+		Calculator calc = new Calculator(myHistory);
+		initialize(calc);
 		
 	}
 	
-	private void initialize() {
+	private void initialize(Calculator calc) {
 		compareFrame = new JFrame();
 		compareFrame.setVisible(true);
 		compareFrame.setTitle("Estimate Cost Savings");
@@ -214,7 +211,7 @@ public class ComparingFrame extends JFrame {
 		textField_11 = new JTextField();
 		textField_11.setColumns(10);
 		textField_11.setBounds(10, 125, 125, 20);
-		String avg = new Double(myHistory.avgConsumption).toString();
+		String avg = new Double(calc.getAverage()).toString();
 		textField_11.setText(avg);
 		contentPane.add(textField_11);
 		

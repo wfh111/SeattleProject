@@ -132,9 +132,9 @@ public class HistoryFrame extends JFrame implements Observer {
 		myTextArea.setText(null);
 		ArrayList<Integer> months = myHistory.getMonths();
 		ArrayList<Integer> years = myHistory.getYears();
-		ArrayList<Double> kWh = myHistory.getKwh();
+		ArrayList<Integer> kWh = myHistory.getKwh();
 		for(int el: months) {
-			String text = convertMonth(months.get(idx)) + ", " + Integer.toString(years.get(idx)) + ", " + Double.toString(kWh.get(idx)) + " kWh\n";
+			String text = convertMonth(months.get(idx)) + ", " + Integer.toString(years.get(idx)) + ", " + Integer.toString(kWh.get(idx)) + " kWh\n";
 //			System.out.println(text);
 			myTextArea.append(text);
 			idx++;
