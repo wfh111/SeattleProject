@@ -23,10 +23,9 @@ import javax.swing.JScrollBar;
 import javax.swing.JSpinner;
 import javax.swing.ButtonGroup;
 
-public class NumCompareFrame extends JFrame implements Observer {
+public class NumCompareFrame extends JFrame {
 
 	private JPanel contentPane;
-	private EnergyHistory home; 
 
 	/**
 	 * Launch the application.
@@ -35,8 +34,8 @@ public class NumCompareFrame extends JFrame implements Observer {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					NumCompareFrame frame = new NumCompareFrame();
-					frame.setVisible(true);
+					NumCompareFrame frame2 = new NumCompareFrame();
+					frame2.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

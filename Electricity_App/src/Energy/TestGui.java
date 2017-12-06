@@ -13,7 +13,7 @@ import javax.swing.JMenuBar;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class TestGui {
+public class TestGui extends JFrame{
 
 	private JFrame frame;
 	private boolean aTrigger = true;
@@ -21,7 +21,7 @@ public class TestGui {
 	/**
 	 * Launch the application.
 	 */
-	public static void mailipsn(String[] args) {
+	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -46,6 +46,7 @@ public class TestGui {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setVisible(true);
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
@@ -59,15 +60,18 @@ public class TestGui {
 			public void actionPerformed(ActionEvent e) {
 				HistoryFrame frame1 = new HistoryFrame();
 				frame1.setVisible(true);
+				frame.setVisible(false);
 			}
 		});
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Estimator");
 		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ComparingFrame frame = new ComparingFrame();
-				frame.setVisible(true);
+			public void actionPerformed(ActionEvent g) {
+				ComparingFrame frame2 = new ComparingFrame();
+				frame2.setVisible(true);
+				frame.setVisible(false);
+				
 			}
 		});
 		frame.getContentPane().add(btnNewButton_1);
