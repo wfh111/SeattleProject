@@ -1,3 +1,8 @@
+/*
+ * Dino done did this shit mane. REEEEEEEEEEEE
+ * 
+ */
+
 package Energy;
 
 import java.awt.BorderLayout;
@@ -117,7 +122,7 @@ public class ComparingFrame extends JFrame {
 		contentPane.add(current);
 		
 		JLabel option1 = new JLabel("Option 1:");
-		option1.setBounds(159,11,150,20);
+		option1.setBounds(155,11,150,20);
 		contentPane.add(option1);
 		
 		JLabel option2 = new JLabel("Option 2:");
@@ -131,18 +136,18 @@ public class ComparingFrame extends JFrame {
 		
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Select","Halogen", "Incandescent", "LED", "CFL"}));
-		comboBox_1.setBounds(159, 11, 125,70);
+		comboBox_1.setBounds(159, 53, 125,20);
 		contentPane.add(comboBox_1);
 		
 		JComboBox comboBox_2 = new JComboBox();
 		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Select","Halogen", "Incandescent","LED", "CFL"}));
-		comboBox_2.setBounds(301, 11, 125, 70);
+		comboBox_2.setBounds(301, 53, 125, 20);
 		contentPane.add(comboBox_2);
 		
 		
 		JComboBox comboBox_3 = new JComboBox();
 		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"Select","Halogen", "Incandescent", "LED", "CFL"}));
-		comboBox_3.setBounds(450, 11, 125,70);
+		comboBox_3.setBounds(450, 53, 125,20);
 		contentPane.add(comboBox_3);
 		
 
@@ -162,16 +167,16 @@ public class ComparingFrame extends JFrame {
 		
 		
 		JLabel label = new JLabel("Installation cost:");
-		label.setBounds(159, 62, 125, 14);
+		label.setBounds(155, 93, 125, 14);
 		contentPane.add(label);
 		
 		JLabel label_1 = new JLabel("Installation cost:");
-		label_1.setBounds(301, 62, 125, 14);
+		label_1.setBounds(297, 93, 125, 14);
 		contentPane.add(label_1);
 		
 		
 		JLabel label_9 = new JLabel("Installation cost:");
-		label_9.setBounds(450, 62, 125, 14);
+		label_9.setBounds(446, 93, 125, 14);
 		contentPane.add(label_9);
 		
 		JLabel lblEstYearlyOperating = new JLabel("Cost per month:");
@@ -179,35 +184,35 @@ public class ComparingFrame extends JFrame {
 		contentPane.add(lblEstYearlyOperating);
 		
 		JLabel label_2 = new JLabel("Cost per month:");
-		label_2.setBounds(159, 105, 150, 14);
+		label_2.setBounds(155, 136, 150, 14);
 		contentPane.add(label_2);
 		
 		JLabel label_3 = new JLabel("Cost per month:");
-		label_3.setBounds(301, 105, 150, 14);
+		label_3.setBounds(297, 136, 150, 14);
 		contentPane.add(label_3);
 		
 		JLabel label_10 = new JLabel("Cost per month:");
-		label_10.setBounds(450, 105, 150, 14);
+		label_10.setBounds(446, 136, 150, 14);
 		contentPane.add(label_10);
 		
 		//option 1 installation cost
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(159, 82, 125, 20);
+		textField_1.setBounds(155, 113, 125, 20);
 		textField_1.setEnabled(false);
 		contentPane.add(textField_1);
 		
 		//option 2 installation cost
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
-		textField_2.setBounds(301, 82, 125, 20);
+		textField_2.setBounds(297, 113, 125, 20);
 		textField_2.setEnabled(false);
 		contentPane.add(textField_2);
 		
 		//option 3 installation cost
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
-		textField_3.setBounds(450, 82, 125, 20);
+		textField_3.setBounds(446, 113, 125, 20);
 		textField_3.setEnabled(false);
 		contentPane.add(textField_3);
 		
@@ -222,52 +227,52 @@ public class ComparingFrame extends JFrame {
 		//option 1 est cost/yr
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
-		textField_4.setBounds(159, 125, 125, 20);
+		textField_4.setBounds(155, 156, 125, 20);
 		textField_4.setEnabled(false);
 		contentPane.add(textField_4);
 		
 		//option 2 est cost/yr
 		textField_5 = new JTextField();
 		textField_5.setColumns(10);
-		textField_5.setBounds(301, 125, 125, 20);
+		textField_5.setBounds(297, 156, 125, 20);
 		textField_5.setEnabled(false);
 		contentPane.add(textField_5);
 		
 		//option 3 est cost/yr
 		textField_9 = new JTextField();
 		textField_9.setColumns(10);
-		textField_9.setBounds(450, 125, 125, 20);
+		textField_9.setBounds(446, 156, 125, 20);
 		textField_9.setEnabled(false);
 		contentPane.add(textField_9);
 		
 		//option 1 savings per year
 		textField_7 = new JTextField();
 		textField_7.setColumns(10);
-		textField_7.setBounds(159, 174, 125, 20);
+		textField_7.setBounds(155, 205, 125, 20);
 		textField_7.setEnabled(false);
 		contentPane.add(textField_7);
 		
 		//option 2 savings per year
 		textField_8 = new JTextField();
 		textField_8.setColumns(10);
-		textField_8.setBounds(301, 174, 125, 20);
+		textField_8.setBounds(297, 205, 125, 20);
 		contentPane.add(textField_8);
 		
 		//option 3 savings per year
 		textField_10 = new JTextField();
-		textField_10.setBounds(450,174,125,20);
+		textField_10.setBounds(446,205,125,20);
 		contentPane.add(textField_10);
 		
 		JLabel label_4 = new JLabel("Savings per year:");
-		label_4.setBounds(159, 149, 150, 14);
+		label_4.setBounds(155, 180, 150, 14);
 		contentPane.add(label_4);
 		
 		JLabel label_5 = new JLabel("Savings per year:");
-		label_5.setBounds(301, 149, 150, 14);
+		label_5.setBounds(297, 180, 150, 14);
 		contentPane.add(label_5);
 		
 		JLabel label_11 = new JLabel("Savings per year:");
-		label_11.setBounds(450, 149, 150, 14);
+		label_11.setBounds(446, 180, 150, 14);
 		contentPane.add(label_11);
 
 		
