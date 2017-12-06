@@ -17,12 +17,21 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Color;
 
-public class AnotherGui {
+/**
+ * @Author Brian Khang
+ * The main GUI. This class will create a frame where the user can choose to create an estimate, look at their history
+ * or sync their data to a cloud service.
+ */
+public class AnotherGui extends JFrame {
 
 	private JFrame frame;
 	private boolean mySync = true;
+	private EnergyHistory myHistory;
+	private String myUser;
 
 	/**
+	 * @author Brian Khang
+	 * Main method of the class.
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
@@ -40,12 +49,17 @@ public class AnotherGui {
 
 	/**
 	 * Create the application.
+	 * @author Brian Khang
+	 * Constructor for the class
 	 */
 	public AnotherGui() {
+		myHistory = new EnergyHistory();
+		myUser = System.getProperty("user.name");
 		initialize();
 	}
 
 	/**
+	 * @author Brian Khang
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
@@ -66,27 +80,40 @@ public class AnotherGui {
 		JMenu mnHelp = new JMenu("Help");
 		menuBar.add(mnHelp);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Buttons");
+		JMenuItem mntmNewMenuItem = new JMenuItem("Buttons...");
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Testing", "Info", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Estimator: Create an estimate for the cost of using different lightbulbs.\n"
+						+ "Energy History: Add, delete, edit history bills.\nSync: Sync information to the cloud.\n"
+						+ "Turn Sync...: Turn cloud sync on and off.", "Info", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		mnHelp.add(mntmNewMenuItem);
 		
-		JMenuItem mntmCreators = new JMenuItem("Info");
+		JMenuItem mntmCreators = new JMenuItem("About...");
+		mntmCreators.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "Application to help DIYers with manging home energy.", "About", JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
 		mnHelp.add(mntmCreators);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnHistory = new JButton("History");
+		JButton btnHistory = new JButton("Energy History");
 		btnHistory.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				HistoryFrame frame1 = new HistoryFrame(myHistory);
 			}
 		});
 		btnHistory.setBounds(0, 94, 428, 59);
 		frame.getContentPane().add(btnHistory);
 		
 		JButton btnEstimator = new JButton("Estimator");
+		btnEstimator.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ComparingFrame frame2 = new ComparingFrame();
+			}
+		});
 		btnEstimator.setBounds(0, 40, 428, 54);
 		frame.getContentPane().add(btnEstimator);
 		
