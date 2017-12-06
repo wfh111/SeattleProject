@@ -10,7 +10,7 @@ public class Mat {
 	private Material type;
 	
 	public enum Material {
-	    INCANDESCENT, HALOGEN, LED, CFL, 
+		HALOGEN, INCANDESCENT, LED, CFL
 	}
 	
 	
