@@ -10,7 +10,8 @@ public class EnergyHistory extends Observable{
 	private ArrayList<Integer> myMonths;
 	private ArrayList<Integer> myYears;
 	private ArrayList<Double> myKwh;
-	private double avgConsumption;
+	public double avgConsumption;
+	//comment
 	
 	public EnergyHistory() {
 		myMonths = new ArrayList<Integer>();
@@ -29,6 +30,15 @@ public class EnergyHistory extends Observable{
 	    notifyObservers();
 	}
 
+	public void getAvgConsumption() {
+		int sum = 0;
+		for(int i=0; i <=myMonths.size(); i++) {
+			sum+=myKwh.get(i);
+		}
+		avgConsumption = (sum / myMonths.size());
+		System.out.println(avgConsumption);
+		
+	}
 	public void delete(int theIdx) {
 		myMonths.remove(theIdx);
 		myYears.remove(theIdx);
