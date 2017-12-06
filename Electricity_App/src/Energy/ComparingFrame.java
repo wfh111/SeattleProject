@@ -24,6 +24,30 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFrame;
+import javax.swing.JToolBar;
+import javax.swing.JButton;
+import javax.swing.JScrollPane;
+import javax.swing.JMenuBar;
+import javax.swing.BoxLayout;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.DropMode;
+import javax.swing.AbstractAction;
+import java.awt.event.ActionEvent;
+import javax.swing.Action;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
+
+import javax.swing.JLabel;
+import javax.swing.JTextPane;
+import javax.swing.JTable;
+import javax.swing.JList;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
 public class ComparingFrame extends JFrame {
 	
@@ -63,8 +87,11 @@ public class ComparingFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public ComparingFrame() {
-		//myHistory = new EnergyHistory();
+		myHistory = new EnergyHistory();
 		//myHistory.addObserver(this);
+		myHistory.add("April", 2001, 123);
+		myHistory.add("June", 2001, 322);
+		myHistory.add("December", 2001, 232);
 		initialize();
 		
 	}
@@ -127,12 +154,12 @@ public class ComparingFrame extends JFrame {
 				
 			}
 		});
-		btnHome.setBounds(683, 175, 97, 25);;
+		btnHome.setBounds(650, 62, 125, 50);;
 		contentPane.add(btnHome);
 		
-		JToggleButton tglbtnCalc = new JToggleButton("Compute");
+		/*JToggleButton tglbtnCalc = new JToggleButton("Compute");
 		tglbtnCalc.setBounds(683, 123, 97, 25);;
-		contentPane.add(tglbtnCalc);
+		contentPane.add(tglbtnCalc);*/
 		
 		
 		JLabel label = new JLabel("Installation cost:");
@@ -148,19 +175,19 @@ public class ComparingFrame extends JFrame {
 		label_9.setBounds(450, 62, 125, 14);
 		contentPane.add(label_9);
 		
-		JLabel lblEstYearlyOperating = new JLabel("Cost per year:");
+		JLabel lblEstYearlyOperating = new JLabel("Cost per month:");
 		lblEstYearlyOperating.setBounds(10, 105, 150, 14);
 		contentPane.add(lblEstYearlyOperating);
 		
-		JLabel label_2 = new JLabel("Cost per year:");
+		JLabel label_2 = new JLabel("Cost per month:");
 		label_2.setBounds(159, 105, 150, 14);
 		contentPane.add(label_2);
 		
-		JLabel label_3 = new JLabel("Cost per year:");
+		JLabel label_3 = new JLabel("Cost per month:");
 		label_3.setBounds(301, 105, 150, 14);
 		contentPane.add(label_3);
 		
-		JLabel label_10 = new JLabel("Cost per year:");
+		JLabel label_10 = new JLabel("Cost per month:");
 		label_10.setBounds(450, 105, 150, 14);
 		contentPane.add(label_10);
 		
@@ -189,6 +216,8 @@ public class ComparingFrame extends JFrame {
 		textField_11 = new JTextField();
 		textField_11.setColumns(10);
 		textField_11.setBounds(10, 125, 125, 20);
+		String avg = new Double(myHistory.avgConsumption).toString();
+		textField_11.setText(avg);
 		contentPane.add(textField_11);
 		
 		//option 1 est cost/yr
@@ -216,6 +245,7 @@ public class ComparingFrame extends JFrame {
 		textField_7 = new JTextField();
 		textField_7.setColumns(10);
 		textField_7.setBounds(159, 174, 125, 20);
+		textField_7.setEnabled(false);
 		contentPane.add(textField_7);
 		
 		//option 2 savings per year
@@ -245,28 +275,30 @@ public class ComparingFrame extends JFrame {
 		comboBox_3.addActionListener(new ActionListener () {
 		    public void actionPerformed(ActionEvent e) {
 		        int indexChosen = comboBox_1.getSelectedIndex();
+		        textField_9.setEnabled(true);
+		        textField_3.setEnabled(true);
 		        switch (indexChosen) {
 		        case 0:
 		        	break;
 		        case 1:
-		        		System.out.println("Box 2 Chose Halogen");
+		        		System.out.println("Box 3 Chose Halogen");
 		        		textField_9.setText("$75.42");
 			        textField_3.setText("$32.98");
 		        	break;
 		        case 2:
-		        		System.out.println("Box 2 Chose Incandescent");
+		        		System.out.println("Box 3 Chose Incandescent");
 		        		textField_9.setText("$64.78");
 			        textField_3.setText("$48.12");
 		        	break;
 		        case 3:
-		        		System.out.println("Box 2 Chose LED");
+		        		System.out.println("Box 3 Chose LED");
 		        		textField_9.setText("$112.00");
 				    textField_3.setText("$14.36");
 		        	break;
 		        case 4:
-		        		System.out.println("Box 2 Chose CFL");
+		        		System.out.println("Box 3 Chose CFL");
 		        		textField_9.setText("$55.67");
-				    textField_3.setText("$17.82");
+				    textField_3.setText("$12.36");
 		        	break;
 		        }
 		    }
@@ -281,16 +313,24 @@ public class ComparingFrame extends JFrame {
 		        case 0:
 		        	break;
 		        case 1:
-		        	System.out.println("Box 2 Chose Halogen");
+		        		System.out.println("Box 2 Chose Halogen");
+		        		textField_5.setText("$75.42");
+			        textField_2.setText("$32.98");
 		        	break;
 		        case 2:
-		        	System.out.println("Box 2 Chose Incandescent");
+		        		System.out.println("Box 2 Chose Incandescent");
+		        		textField_5.setText("$64.78");
+			        textField_2.setText("$48.12");
 		        	break;
 		        case 3:
-		        	System.out.println("Box 2 Chose LED");
+		        		System.out.println("Box 2 Chose LED");
+		        		textField_5.setText("$112.00");
+				    textField_2.setText("$14.36");
 		        	break;
 		        case 4:
-		        	System.out.println("Box 2 Chose CFL");
+		        		System.out.println("Box 2 Chose CFL");
+		        		textField_5.setText("$55.67");
+				    textField_2.setText("$12.36");
 		        	break;
 		        }
 		    }
@@ -305,16 +345,24 @@ public class ComparingFrame extends JFrame {
 		        case 0:
 		        	break;
 		        case 1:
-		        	System.out.println("Box 2 Chose Halogen");
+		        		System.out.println("Box 1 Chose Halogen");
+		        		textField_4.setText("$75.42");
+			        textField_1.setText("$32.98");
 		        	break;
 		        case 2:
-		        	System.out.println("Box 2 Chose Incandescent");
+		        		System.out.println("Box 1 Chose Incandescent");
+		        		textField_4.setText("$64.78");
+			        textField_1.setText("$48.12");
 		        	break;
 		        case 3:
-		        	System.out.println("Box 2 Chose LED");
+		        		System.out.println("Box 1 Chose LED");
+		        		textField_4.setText("$112.00");
+				    textField_1.setText("$14.36");
 		        	break;
 		        case 4:
-		        	System.out.println("Box 2 Chose CFL");
+		        		System.out.println("Box 1 Chose CFL");
+		        		textField_4.setText("$55.67");
+				    textField_1.setText("$12.36");
 		        	break;
 		        }
 		    }
