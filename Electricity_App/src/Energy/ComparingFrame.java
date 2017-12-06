@@ -71,6 +71,7 @@ public class ComparingFrame extends JFrame {
 	private JTextField textField_9;
 	private JTextField textField_10;
 	private JTextField textField_11;
+	private double costPerKWH = 0.1; 
 
 	/**
 	 * Launch the application.
@@ -216,8 +217,9 @@ public class ComparingFrame extends JFrame {
 		textField_11 = new JTextField();
 		textField_11.setColumns(10);
 		textField_11.setBounds(10, 125, 125, 20);
-		String avg = new Double(calc.getAverage()).toString();
-		textField_11.setText(avg);
+		double currAvg = calc.getAverage()*costPerKWH;
+		String avg = new Double(currAvg).toString();
+		textField_11.setText("$"+avg);
 		contentPane.add(textField_11);
 		
 		//option 1 est cost/yr
@@ -259,114 +261,165 @@ public class ComparingFrame extends JFrame {
 		textField_10.setBounds(446,205,125,20);
 		contentPane.add(textField_10);
 		
-		JLabel label_4 = new JLabel("Savings per year:");
+		JLabel label_4 = new JLabel("Savings per month:");
 		label_4.setBounds(155, 180, 150, 14);
 		contentPane.add(label_4);
 		
-		JLabel label_5 = new JLabel("Savings per year:");
+		JLabel label_5 = new JLabel("Savings per month:");
 		label_5.setBounds(297, 180, 150, 14);
 		contentPane.add(label_5);
 		
-		JLabel label_11 = new JLabel("Savings per year:");
+		JLabel label_11 = new JLabel("Savings per month:");
 		label_11.setBounds(446, 180, 150, 14);
 		contentPane.add(label_11);
-
 		
 		comboBox_3.addActionListener(new ActionListener () {
+			double savings; 
+			String print;
 		    public void actionPerformed(ActionEvent e) {
 		        int indexChosen = comboBox_1.getSelectedIndex();
 		        textField_9.setEnabled(true);
 		        textField_3.setEnabled(true);
 		        switch (indexChosen) {
 		        case 0:
+		        		textField_3.setText("");
+		        		textField_9.setText("");
+		        		textField_10.setText("");
 		        	break;
 		        case 1:
 		        		System.out.println("Box 3 Chose Halogen");
-		        		textField_9.setText("$75.42");
-			        textField_3.setText("$32.98");
+		        		textField_3.setText("$75.42");
+			        textField_9.setText("$3.57");
+			        savings = currAvg - 3.57;
+			        print = String.format("%.2f",savings);
+			        textField_10.setText(print);
 		        	break;
 		        case 2:
 		        		System.out.println("Box 3 Chose Incandescent");
-		        		textField_9.setText("$64.78");
-			        textField_3.setText("$48.12");
+		        		textField_3.setText("$64.78");
+			        textField_9.setText("$4.38");
+			        savings = currAvg - 4.38;
+			        print = String.format("%.2f",savings);
+			        textField_10.setText(print);
 		        	break;
 		        case 3:
 		        		System.out.println("Box 3 Chose LED");
-		        		textField_9.setText("$112.00");
-				    textField_3.setText("$14.36");
+		        		textField_3.setText("$112.00");
+				    textField_9.setText("$4.57");
+				    savings = currAvg - 4.57;
+				    print = String.format("%.2f",savings);
+			        textField_10.setText(print);
 		        	break;
 		        case 4:
 		        		System.out.println("Box 3 Chose CFL");
-		        		textField_9.setText("$55.67");
-				    textField_3.setText("$12.36");
+		        		textField_3.setText("$55.67");
+				    textField_9.setText("$1.45");
+				    savings = currAvg - 1.45;
+				    print = String.format("%.2f",savings);
+			        textField_10.setText(print);
 		        	break;
 		        }
 		    }
 		});
 		
 		comboBox_2.addActionListener(new ActionListener () {
+			double savings; 
+			String print;
 		    public void actionPerformed(ActionEvent e) {
 		        int indexChosen = comboBox_2.getSelectedIndex();
 		        textField_2.setEnabled(true);
 		        textField_5.setEnabled(true);
 		        switch (indexChosen) {
 		        case 0:
+		        		textField_2.setText("");
+		        		textField_5.setText("");
+		        		textField_8.setText("");
 		        	break;
 		        case 1:
 		        		System.out.println("Box 2 Chose Halogen");
-		        		textField_5.setText("$75.42");
-			        textField_2.setText("$32.98");
+		        		textField_2.setText("$75.42");
+			        textField_5.setText("$3.57");
+			        savings = currAvg - 3.57;
+			        print = String.format("%.2f",savings);
+			        textField_8.setText(print);
 		        	break;
 		        case 2:
 		        		System.out.println("Box 2 Chose Incandescent");
-		        		textField_5.setText("$64.78");
-			        textField_2.setText("$48.12");
+		        		textField_2.setText("$64.78");
+			        textField_5.setText("$4.38");
+			        savings = currAvg - 4.38;
+			        print = String.format("%.2f",savings);
+			        textField_8.setText(print);
 		        	break;
 		        case 3:
 		        		System.out.println("Box 2 Chose LED");
-		        		textField_5.setText("$112.00");
-				    textField_2.setText("$14.36");
+		        		textField_2.setText("$112.00");
+				    textField_5.setText("$4.57");
+				    savings = currAvg - 4.57;
+				    print = String.format("%.2f",savings);
+			        textField_8.setText(print);
 		        	break;
 		        case 4:
 		        		System.out.println("Box 2 Chose CFL");
-		        		textField_5.setText("$55.67");
-				    textField_2.setText("$12.36");
+		        		textField_2.setText("$55.67");
+				    textField_5.setText("$1.45");
+				    savings = currAvg - 1.45;
+				    print = String.format("%.2f",savings);
+			        textField_8.setText(print);
 		        	break;
 		        }
 		    }
 		});
 		
 		comboBox_1.addActionListener(new ActionListener () {
+			double savings; 
+			String print;
 		    public void actionPerformed(ActionEvent e) {
 		        int indexChosen = comboBox_1.getSelectedIndex();
 		        textField_1.setEnabled(true);
 		        textField_4.setEnabled(true);
 		        switch (indexChosen) {
 		        case 0:
+			        	textField_1.setText("");
+		        		textField_4.setText("");
+		        		textField_7.setText("");
 		        	break;
 		        case 1:
 		        		System.out.println("Box 1 Chose Halogen");
-		        		textField_4.setText("$75.42");
-			        textField_1.setText("$32.98");
+		        		textField_1.setText("$75.42");
+			        textField_4.setText("$3.57");
+			        savings = currAvg - 3.57;
+			        print = String.format("%.2f",savings);
+			        textField_7.setText(print);
 		        	break;
 		        case 2:
 		        		System.out.println("Box 1 Chose Incandescent");
-		        		textField_4.setText("$64.78");
-			        textField_1.setText("$48.12");
+		        		textField_1.setText("$64.78");
+			        textField_4.setText("$4.38");
+			        savings = currAvg - 4.38;
+			        print = String.format("%.2f",savings);
+			        textField_7.setText(print);
 		        	break;
 		        case 3:
 		        		System.out.println("Box 1 Chose LED");
-		        		textField_4.setText("$112.00");
-				    textField_1.setText("$14.36");
+		        		textField_1.setText("$112.00");
+				    textField_4.setText("$4.57");
+				    savings = currAvg - 4.57;
+				    print = String.format("%.2f",savings);
+			        textField_7.setText(print);
 		        	break;
 		        case 4:
 		        		System.out.println("Box 1 Chose CFL");
-		        		textField_4.setText("$55.67");
-				    textField_1.setText("$12.36");
+		        		textField_1.setText("$55.67");
+				    textField_4.setText("$1.45");
+				    savings = currAvg - 1.45;
+				    print = String.format("%.2f",savings);
+			        textField_7.setText(print);
 		        	break;
 		        }
 		    }
 		});
+		
 		
 	}
 }
