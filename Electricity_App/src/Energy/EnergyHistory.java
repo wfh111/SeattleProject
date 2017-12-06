@@ -11,6 +11,7 @@ public class EnergyHistory extends Observable{
 	private ArrayList<Integer> myYears;
 	private ArrayList<Double> myKwh;
 	public double avgConsumption;
+	//comment
 	
 	public EnergyHistory() {
 		myMonths = new ArrayList<Integer>();
