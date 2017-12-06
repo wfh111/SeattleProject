@@ -1,3 +1,8 @@
+/*
+ * Dino done did this shit mane. REEEEEEEEEEEE
+ * 
+ */
+
 package Energy;
 
 import java.awt.BorderLayout;
