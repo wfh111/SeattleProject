@@ -18,6 +18,10 @@ import java.awt.Font;
 import javax.swing.JMenu;
 import java.awt.Choice;
 
+/**
+ * @author Walter Hanson
+ * Class to allow User to edit their EnergyHistory. 
+ */
 public class EditDialog extends JDialog implements Observer{
 
 	private final JPanel contentPanel = new JPanel();
@@ -45,6 +49,7 @@ public class EditDialog extends JDialog implements Observer{
 	}
 
 	/**
+	 * @author Walter Hanson
 	 * Create the dialog.
 	 */
 	public EditDialog(EnergyHistory theEnergy) {
@@ -52,6 +57,9 @@ public class EditDialog extends JDialog implements Observer{
 		myEnergy = theEnergy;
 		initialize();
 	}
+	/**
+	 * @author Walter Hanson.
+	 */
 	private void initialize() {
 		setTitle("Edit History");
 		setBounds(100, 100, 591, 209);
@@ -98,7 +106,12 @@ public class EditDialog extends JDialog implements Observer{
 		cancelButton.setActionCommand("Cancel");
 		buttonPane.add(cancelButton);
 	}
-
+	/**
+	 * @author Walter Hanson
+	 * Method to add user's history into drop down menu. 
+	 * Precondition: Instance of EnergyHistory
+	 * Postcondition: User's history added to drop-down menu to be selected.
+	 */
 	private void addData() {
 		int i = 0;
 		myData.removeAll();
@@ -111,6 +124,12 @@ public class EditDialog extends JDialog implements Observer{
 		}
 	}
 
+	/**
+	 * @author Walter Hanson
+	 * Method to convert the int representation of a month to its String form. 
+	 * Precondition: An integer with value in the range 1 through 12
+	 * Postcondition:The String representation of the int passed in
+	 */
 	private String convertMonth(int theMonth) {
 		String month = "";
 		switch (theMonth) {

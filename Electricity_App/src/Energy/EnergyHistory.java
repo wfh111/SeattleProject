@@ -11,8 +11,10 @@ public class EnergyHistory extends Observable{
 	private ArrayList<Integer> myYears;
 	private ArrayList<Integer> myKwh;
 	public double avgConsumption;
-	//comment
 	
+	/**
+	 * @author Walter Hanson
+	 */
 	public EnergyHistory() {
 		myMonths = new ArrayList<Integer>();
 		myYears = new ArrayList<Integer>();
@@ -20,6 +22,13 @@ public class EnergyHistory extends Observable{
 		avgConsumption = 0;
 	}
 	
+	/**
+	 * @author Walter Hanson
+	 * Method to add data to the ArrayLists.
+	 * Precondition:A string containing the name of a month, an int representing a year in the 
+	 * range 2000 through 2017, and an int representing energy used this month
+	 * Postcondition:theMonth was added to myMonths, theYear added to myYears, and theKwh added to myKwh
+	 */
 	public void add(String theMonth, int theYear, int theKwh) {
 		int monthNum = findMonthInt(theMonth);
 		int repeat = checkList(monthNum, theYear);
@@ -34,7 +43,12 @@ public class EnergyHistory extends Observable{
 		setChanged();
 	    notifyObservers();
 	}
-
+	/**
+	 * @author Walter Hanson
+	 * Method to check if the month and year has already been added 
+	 * Precondition: monthNum and theYear is the month and year to check if they been already added
+	 * Postcondition: The idx of the month and year if already in the list or 0 if not in the list
+	 */
 	private int checkList(int monthNum, int theYear) {
 		int idx = 0;
 		int count = 1;
@@ -49,6 +63,12 @@ public class EnergyHistory extends Observable{
 		return idx;
 	}
 
+	/**
+	 * @author Walter Hanson
+	 * Method to get avg energy consumption
+	 * Precondition: Energy values to calculate
+	 * Postcondition: The average of all the kWh elements in myKwh. 
+	 */
 	public void getAvgConsumption() {
 		int sum = 0;
 		for(int i=0; i <=myMonths.size(); i++) {
@@ -58,6 +78,12 @@ public class EnergyHistory extends Observable{
 		System.out.println(avgConsumption);
 		
 	}
+	/**
+	 * @author Walter Hanson
+	 * Method to remove an element from the history
+	 * Precondition: Idx is less than the size of the list
+	 * Postcondition: Removes the element at the given idx from history
+	 */
 	public void delete(int theIdx) {
 		myMonths.remove(theIdx);
 		myYears.remove(theIdx);
@@ -65,29 +91,53 @@ public class EnergyHistory extends Observable{
 		setChanged();
 	    notifyObservers();
 	}
-	
-	public void edit(int theMonth, int theYear, int theKwh, int theIdx) {
-		myMonths.set(theIdx, theMonth);
-		myYears.set(theIdx, theYear);
-		myKwh.set(theIdx, theKwh);
-	}
-	
+
+	/**
+	 * @author Walter Hanson
+	 * Method to get the Months list 
+	 * Precondition: The list Months is instantiated
+	 * Postcondition: Returns the Months list
+	 */
 	public ArrayList<Integer> getMonths() {
 		return (ArrayList<Integer>) myMonths.clone();
 	}
 	
+	/**
+	 * @author Walter Hanson
+	 * Method to get the Years list 
+	 * Precondition: The list Years is instantiated
+	 * Postcondition: Returns the Years list
+	 */
 	public ArrayList<Integer> getYears() {
 		return (ArrayList<Integer>) myYears.clone();
 	}
 	
+	/**
+	 * @author Walter Hanson
+	 * Method to get the kWh list 
+	 * Precondition: The list kWh is instantiated
+	 * Postcondition: Returns the kWh list
+	 */
 	public ArrayList<Integer> getKwh() {
 		return (ArrayList<Integer>) myKwh.clone();
 	}
 	
+	/**
+	 * @author Walter Hanson
+	 * Method to check if the list is empty
+	 * Precondition: myMonths has been instantiated
+	 * Postcondition: Returns true if myMonths is empty or false if it's not
+	 */
 	public boolean isEmpty() {
 		return myMonths.isEmpty();
 	}
 	
+	/**
+	 * @author Walter Hanson
+	 * Method to convert the string representation of a month to its int form. 
+	 * Precondition: A String with the name of the month to convert
+	 * Postcondition:The int representation of the String passed in
+	 */
 	private int findMonthInt(String theMonth) {
 		int month = 1;
 		switch (theMonth) {
@@ -131,6 +181,12 @@ public class EnergyHistory extends Observable{
 		return month;
 	}
 	
+	/**
+	 * @author Walter Hanson
+	 * Method to find the location to place the month and year so it's in order 
+	 * Precondition: monthNum and theYear is the month and year to order
+	 * Postcondition: The idx to place the new month and year
+	 */
 	private int findLocation(int theMonth, int theYear) {
 		int idx = 0;
 		for (int el: myYears) {

@@ -13,6 +13,10 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Choice;
 
+/**
+ * @author Walter Hanson
+ * Class to allow User to choose data in their history to delete. 
+ */
 public class DeleteDialog extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
@@ -35,12 +39,16 @@ public class DeleteDialog extends JDialog {
 	}
 
 	/**
+	 * @author Walter Hanson
 	 * Create the dialog.
 	 */
 	public DeleteDialog(EnergyHistory theHist) {
 		initialize(theHist);
 	}
 	
+	/**
+	 * @author Walter Hanson
+	 */
 	private void initialize(EnergyHistory theHist) {
 		setTitle("Delete from History");
 		setBounds(100, 100, 641, 183);
@@ -84,6 +92,13 @@ public class DeleteDialog extends JDialog {
 		cancelButton.setActionCommand("Cancel");
 		buttonPane.add(cancelButton);
 	}
+	
+	/**
+	 * @author Walter Hanson
+	 * Method to add user's history into drop down menu. 
+	 * Precondition: Instance of EnergyHistory
+	 * Postcondition: User's history added to drop-down menu to be selected.
+	 */
 	private void addData(EnergyHistory theEnergy, Choice theData) {
 		int i = 0;
 		ArrayList<Integer> month = theEnergy.getMonths();
@@ -93,9 +108,13 @@ public class DeleteDialog extends JDialog {
 			String strMonth = convertMonth(month.get(i));
 			theData.add(strMonth + ", " + Integer.toString(year.get(i)) + ", " + Double.toString(kWh.get(i)) + " kWh");
 		}
-//		return theData;
 	}
-
+	/**
+	 * @author Walter Hanson
+	 * Method to convert the int representation of a month to its String form. 
+	 * Precondition: An integer with value in the range 1 through 12
+	 * Postcondition:The String representation of the int passed in
+	 */
 	private String convertMonth(int theMonth) {
 		String month = "";
 		switch (theMonth) {

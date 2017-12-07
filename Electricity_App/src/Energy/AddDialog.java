@@ -16,6 +16,10 @@ import java.awt.event.ActionListener;
 import java.text.NumberFormat;
 import java.awt.event.ActionEvent;
 
+/**
+ * @author Walter Hanson
+ * Class to allow User to add data to their history. 
+ */
 public class AddDialog extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
@@ -41,8 +45,8 @@ public class AddDialog extends JDialog {
 	}
 
 	/**
+	 * @author Walter Hanson
 	 * Create the dialog.
-	 * @wbp.parser.constructor
 	 */
 	public AddDialog(EnergyHistory theHist) {
 		myMonth = "January";
@@ -60,6 +64,10 @@ public class AddDialog extends JDialog {
 		mykWhField.setValue(0);
 		initialize();
 	}
+	
+	/**
+	 * @author Walter Hanson
+	 */
 	public AddDialog(int theMonth, int theYear, int thekWh, EnergyHistory theHist) {
 		myIntMonth = theMonth;
 		myYear = theYear;
@@ -76,6 +84,9 @@ public class AddDialog extends JDialog {
 		initialize();
 	}
 	
+	/**
+	 * @author Walter Hanson
+	 */
 	private void initialize() {
 		setTitle("Add to History");
 		setBounds(100, 100, 571, 307);
@@ -142,6 +153,12 @@ public class AddDialog extends JDialog {
 		buttonPane.add(cancelButton);
 	}
 	
+	/**
+	 * @author Walter Hanson
+	 * Method to add the years 2000 to 2017 to a drop-down menu. 
+	 * Precondition: Drop-down menu to add the years too
+	 * Postcondition: Drop-down menu filled with the years 2000 to 2017 that the User can select.
+	 */
 	private Choice addYears(Choice theYears) {
 		int year = 2000;
 		for(; year < 2018; year++) {
@@ -150,6 +167,12 @@ public class AddDialog extends JDialog {
 		return theYears;
 	}
 
+	/**
+	 * @author Walter Hanson
+	 * Method to add months to a drop-down menu. 
+	 * Precondition: Drop-down menu to add the months too
+	 * Postcondition: Drop-down menu filled with all 12 months that the User can select.
+	 */
 	private Choice addMonths(Choice theMonths) {
 		theMonths.add("January");
 		theMonths.add("February");
@@ -166,6 +189,12 @@ public class AddDialog extends JDialog {
 		return theMonths;
 	}
 	
+	/**
+	 * @author Walter Hanson
+	 * Method to convert the string representation of a month to its int form. 
+	 * Precondition: A String with the name of the month to convert
+	 * Postcondition:The int representation of the String passed in
+	 */
 	private int findMonthInt(String theMonth) {
 		int month = 1;
 		switch (theMonth) {
@@ -208,17 +237,5 @@ public class AddDialog extends JDialog {
 		}
 		return month;
 	}
-//
-//	public int getYear() {
-//		return myYear;
-//	}
-//
-//	public String getMonth() {
-//		return myMonth;
-//	}
-//
-//	public double getkWh() {
-//		return mykWh;
-//	}
 
 }
