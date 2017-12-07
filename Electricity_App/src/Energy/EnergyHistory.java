@@ -22,12 +22,31 @@ public class EnergyHistory extends Observable{
 	
 	public void add(String theMonth, int theYear, int theKwh) {
 		int monthNum = findMonthInt(theMonth);
-		int idx = findLocation(monthNum, theYear);
-		myMonths.add(idx, monthNum);
-		myYears.add(idx, theYear);
-		myKwh.add(idx, theKwh);
+		int repeat = checkList(monthNum, theYear);
+		if(repeat > 0) {
+			myKwh.set(repeat - 1, theKwh);
+		}else {
+			int idx = findLocation(monthNum, theYear);
+			myMonths.add(idx, monthNum);
+			myYears.add(idx, theYear);
+			myKwh.add(idx, theKwh);
+		}
 		setChanged();
 	    notifyObservers();
+	}
+
+	private int checkList(int monthNum, int theYear) {
+		int idx = 0;
+		int count = 1;
+		for(int el: myYears) {
+			if(el == theYear) {
+				if(myMonths.get(idx) == monthNum) {
+					return count;
+				}
+			}
+			count++;
+		}
+		return idx;
 	}
 
 	public void getAvgConsumption() {
