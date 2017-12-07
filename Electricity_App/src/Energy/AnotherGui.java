@@ -38,7 +38,6 @@ public class AnotherGui extends JFrame {
 	private EnergyHistory myHistory;
 	private String myUser;
 	private String userName = System.getProperty("user.name");
-	private File myFile;
 
 	/**
 	 * @author Brian Khang
@@ -96,7 +95,9 @@ public class AnotherGui extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "Estimator: Create an estimate for the cost of using different lightbulbs.\n"
 						+ "Energy History: Add, delete, edit history bills.\nSync: Sync information to the cloud.\n"
-						+ "Turn Sync...: Turn cloud sync on and off.", "Info", JOptionPane.INFORMATION_MESSAGE);
+						+ "Turn Sync...: Turn cloud sync on and off.\n"
+						+ "Import: Import a text file that contains data of energy consumption over a period of time\n"
+						+ "Export: Create a text file containing data from Energy History", "Info", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		mnHelp.add(mntmNewMenuItem);
