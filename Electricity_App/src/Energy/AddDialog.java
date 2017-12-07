@@ -10,7 +10,10 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.NumberFormatter;
+
 import java.awt.event.ActionListener;
+import java.text.NumberFormat;
 import java.awt.event.ActionEvent;
 
 public class AddDialog extends JDialog {
@@ -39,6 +42,7 @@ public class AddDialog extends JDialog {
 
 	/**
 	 * Create the dialog.
+	 * @wbp.parser.constructor
 	 */
 	public AddDialog(EnergyHistory theHist) {
 		myMonth = "January";
@@ -48,7 +52,11 @@ public class AddDialog extends JDialog {
 		myIntMonth = 1;
 		mySelectMonth = new Choice();
 		mySelectYear = new Choice();
-		mykWhField = new JFormattedTextField();
+		NumberFormat longFormat = NumberFormat.getIntegerInstance();
+		NumberFormatter numberFormatter = new NumberFormatter(longFormat);
+		numberFormatter.setValueClass(Long.class); //optional, ensures you will always get a long value
+		numberFormatter.setAllowsInvalid(false); 
+		mykWhField = new JFormattedTextField(numberFormatter);
 		mykWhField.setValue(0);
 		initialize();
 	}
@@ -59,7 +67,11 @@ public class AddDialog extends JDialog {
 		myHist = theHist;
 		mySelectMonth = new Choice();
 		mySelectYear = new Choice();
-		mykWhField = new JFormattedTextField();
+		NumberFormat longFormat = NumberFormat.getIntegerInstance();
+		NumberFormatter numberFormatter = new NumberFormatter(longFormat);
+		numberFormatter.setValueClass(Long.class); //optional, ensures you will always get a long value
+		numberFormatter.setAllowsInvalid(false); 
+		mykWhField = new JFormattedTextField(numberFormatter);
 		mykWhField.setValue(0);
 		initialize();
 	}
@@ -109,7 +121,9 @@ public class AddDialog extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 				myMonth = mySelectMonth.getSelectedItem();
 				myYear = Integer.parseInt(mySelectYear.getSelectedItem());
-				mykWh = Integer.parseInt(mykWhField.getText());
+				String txt = mykWhField.getText();
+				txt = txt.replace(",", "");
+				mykWh = Integer.parseInt(txt);
 				myHist.add(myMonth, myYear, mykWh);
 				setVisible(false);
 			}
