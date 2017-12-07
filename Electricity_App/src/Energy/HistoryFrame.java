@@ -27,9 +27,8 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 /**
- * 
  * @author Walter Hanson
- *
+ * Class to display the User's energy history and allows them to add, delete, or edit their information.
  */
 public class HistoryFrame extends JFrame implements Observer {
 
@@ -54,7 +53,8 @@ public class HistoryFrame extends JFrame implements Observer {
 	}
 
 	/**
-	 * Create the application.
+	 * @author Walter Hanson
+	 * Create the JFrame.
 	 */
 	public HistoryFrame(EnergyHistory theHistory) {
 		myHistory = theHistory;
@@ -64,6 +64,7 @@ public class HistoryFrame extends JFrame implements Observer {
 	}
 
 	/**
+	 * @author Walter Hanson
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
@@ -133,6 +134,12 @@ public class HistoryFrame extends JFrame implements Observer {
 		displayData();
 	}
 	
+	/**
+	 * @author Walter Hanson
+	 * Method to display the users energy history to the screen. 
+	 * Precondition: An instance of EnergyHistory has been instantiated
+	 * Postcondition: User's energy history data displayed on screen in form Month,Year,kWh
+	 */
 	private void displayData() {
 		int idx = 0;
 		myTextArea.setText(null);
@@ -146,7 +153,12 @@ public class HistoryFrame extends JFrame implements Observer {
 			idx++;
 		}
 	}
-
+	/**
+	 * @author Walter Hanson
+	 * Method to convert the int representation of a month to its String form. 
+	 * Precondition: An integer with value in the range 1 through 12
+	 * Postcondition:The String representation of the int passed in
+	 */
 	private String convertMonth(int theMonth) {
 		String month = "";
 		switch (theMonth) {
