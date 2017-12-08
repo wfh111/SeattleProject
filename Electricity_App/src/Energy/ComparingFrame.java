@@ -110,7 +110,7 @@ public class ComparingFrame extends JFrame {
 		compareFrame = new JFrame();
 		compareFrame.setVisible(true);
 		compareFrame.setTitle("Estimate Cost Savings");
-		compareFrame.setBounds(100,100,815,260);
+		compareFrame.setBounds(100,100,835,270);
 		compareFrame.setResizable(false);
 		compareFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		//compareFrame.getContentPane().setLayout(new BoxLayout(compareFrame.getContentPane(),BoxLayout.X_AXIS));
