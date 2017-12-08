@@ -1,5 +1,6 @@
 package Energy;
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
@@ -143,6 +144,7 @@ public class HistoryFrame extends JFrame implements Observer {
 		for(int el: months) {
 			String text = convertMonth(months.get(idx)) + ", " + Integer.toString(years.get(idx)) + ", " + Integer.toString(kWh.get(idx)) + " kWh\n";
 //			System.out.println(text);
+			myTextArea.setFont(new Font(null, Font.PLAIN, 16));
 			myTextArea.append(text);
 			idx++;
 		}
