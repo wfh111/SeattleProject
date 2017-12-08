@@ -2,29 +2,17 @@ package Energy;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JToolBar;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
-import javax.swing.JMenuBar;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import javax.swing.DropMode;
-import javax.swing.AbstractAction;
+
 import java.awt.event.ActionEvent;
-import javax.swing.Action;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
-
-import javax.swing.JLabel;
-import javax.swing.JTextPane;
-import javax.swing.JTable;
-import javax.swing.JList;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 
 /**
  * @author Walter Hanson

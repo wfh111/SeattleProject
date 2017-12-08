@@ -11,11 +11,8 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JScrollPane;
-import javax.swing.JList;
 import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.JMenu;
 import java.awt.Choice;
 
 /**

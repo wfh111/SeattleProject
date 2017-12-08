@@ -65,21 +65,6 @@ public class EnergyHistory extends Observable{
 
 	/**
 	 * @author Walter Hanson
-	 * Method to get avg energy consumption
-	 * Precondition: Energy values to calculate
-	 * Postcondition: The average of all the kWh elements in myKwh. 
-	 */
-	public void getAvgConsumption() {
-		int sum = 0;
-		for(int i=0; i <=myMonths.size(); i++) {
-			sum+=myKwh.get(i);
-		}
-		avgConsumption = (sum / myMonths.size());
-		System.out.println(avgConsumption);
-		
-	}
-	/**
-	 * @author Walter Hanson
 	 * Method to remove an element from the history
 	 * Precondition: Idx is less than the size of the list
 	 * Postcondition: Removes the element at the given idx from history
@@ -120,16 +105,6 @@ public class EnergyHistory extends Observable{
 	 */
 	public ArrayList<Integer> getKwh() {
 		return (ArrayList<Integer>) myKwh.clone();
-	}
-	
-	/**
-	 * @author Walter Hanson
-	 * Method to check if the list is empty
-	 * Precondition: myMonths has been instantiated
-	 * Postcondition: Returns true if myMonths is empty or false if it's not
-	 */
-	public boolean isEmpty() {
-		return myMonths.isEmpty();
 	}
 	
 	/**
