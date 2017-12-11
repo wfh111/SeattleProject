@@ -257,7 +257,6 @@ public class ComparingFrame extends JFrame {
 		textField_7 = new JTextField();
 		textField_7.setColumns(10);
 		textField_7.setBounds(155, 205, 125, 20);
-		textField_7.setEnabled(false);
 		contentPane.add(textField_7);
 		
 		//option 2 savings per year
@@ -287,7 +286,7 @@ public class ComparingFrame extends JFrame {
 			double savings; 
 			String print;
 		    public void actionPerformed(ActionEvent e) {
-		        int indexChosen = comboBox_1.getSelectedIndex();
+		        int indexChosen = comboBox_3.getSelectedIndex();
 		        textField_9.setEnabled(true);
 		        textField_3.setEnabled(true);
 		        switch (indexChosen) {
