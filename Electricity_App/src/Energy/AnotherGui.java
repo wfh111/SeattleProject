@@ -73,8 +73,8 @@ public class AnotherGui extends JFrame {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 358);
+		frame = new JFrame("Can I Get a Watt Watt?");
+		frame.setBounds(100, 100, 455, 350);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JMenuBar menuBar = new JMenuBar();

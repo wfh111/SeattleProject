@@ -1,30 +1,19 @@
 package Energy;
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.JFrame;
-import javax.swing.JToolBar;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
-import javax.swing.JMenuBar;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import javax.swing.DropMode;
-import javax.swing.AbstractAction;
+
 import java.awt.event.ActionEvent;
-import javax.swing.Action;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
-
-import javax.swing.JLabel;
-import javax.swing.JTextPane;
-import javax.swing.JTable;
-import javax.swing.JList;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 
 /**
  * @author Walter Hanson
@@ -34,7 +23,9 @@ public class HistoryFrame extends JFrame implements Observer {
 
 	private JFrame historyFrame;
 	private EnergyHistory myHistory;
-	JTextArea myTextArea;
+	private JTextArea myTextArea;
+	private JButton myDelete;
+	private JButton myEdit;
 	
 	/**
 	 * Launch the application.
@@ -60,6 +51,8 @@ public class HistoryFrame extends JFrame implements Observer {
 		myHistory = theHistory;
 		myHistory.addObserver(this);
 		myTextArea = new JTextArea();
+		myDelete = new JButton("Delete...");
+		myEdit = new JButton("Edit...");
 		initialize();
 	}
 
@@ -80,32 +73,34 @@ public class HistoryFrame extends JFrame implements Observer {
 		historyFrame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		JButton btnDelete = new JButton("Delete...");
-		btnDelete.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				DeleteDialog delete = new DeleteDialog(myHistory);
-				delete.setVisible(true);
-			}
-		});
-		btnDelete.setBounds(683, 123, 97, 25);
-		panel.add(btnDelete);
-		
-		JButton btnEdit = new JButton("Edit...");
-		btnEdit.addActionListener(new ActionListener() {
+		myEdit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EditDialog edit = new EditDialog(myHistory);
 				edit.setVisible(true);
 				myHistory.addObserver(edit);
 			}
 		});
-		btnEdit.setBounds(683, 175, 97, 25);
-		panel.add(btnEdit);
+		myEdit.setBounds(683, 175, 97, 25);
+		myEdit.setEnabled(false);
+		panel.add(myEdit);
+		
+		myDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				DeleteDialog delete = new DeleteDialog(myHistory);
+				delete.setVisible(true);
+			}
+		});
+		myDelete.setBounds(683, 123, 97, 25);
+		myDelete.setEnabled(false);
+		panel.add(myDelete);
 		
 		JButton btnAdd = new JButton("Add...");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AddDialog add = new AddDialog(myHistory);
 				add.setVisible(true);
+				myDelete.setEnabled(true);
+				myEdit.setEnabled(true);
 			}
 		});
 		btnAdd.setBounds(683, 69, 97, 25);
@@ -149,8 +144,16 @@ public class HistoryFrame extends JFrame implements Observer {
 		for(int el: months) {
 			String text = convertMonth(months.get(idx)) + ", " + Integer.toString(years.get(idx)) + ", " + Integer.toString(kWh.get(idx)) + " kWh\n";
 //			System.out.println(text);
+			myTextArea.setFont(new Font(null, Font.PLAIN, 16));
 			myTextArea.append(text);
 			idx++;
+		}
+		if(kWh.isEmpty()) {
+			myDelete.setEnabled(false);
+			myEdit.setEnabled(false);
+		} else {
+			myDelete.setEnabled(true);
+			myEdit.setEnabled(true);
 		}
 	}
 	/**
