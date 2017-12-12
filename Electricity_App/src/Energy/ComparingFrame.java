@@ -79,22 +79,6 @@ public class ComparingFrame extends JFrame {
 	private static int bulb_quantity = 6; // number of bulbs
 
 	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ComparingFrame frame = new ComparingFrame();
-					frame.compareFrame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-
-	/**
 	 * Create the frame.
 	 * @author giovannagraciani
 	 * @param myHistory
@@ -113,55 +97,56 @@ public class ComparingFrame extends JFrame {
 	 * @param calc
 	 */
 	private void initialize(Calculator calc) {
+		// set up
 		compareFrame = new JFrame();
 		compareFrame.setVisible(true);
 		compareFrame.setTitle("Estimate Cost Savings");
 		compareFrame.setBounds(100,100,835,270);
 		compareFrame.setResizable(false);
 		compareFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		//compareFrame.getContentPane().setLayout(new BoxLayout(compareFrame.getContentPane(),BoxLayout.X_AXIS));
+
 		contentPane = new JPanel();
 		compareFrame.getContentPane().add(contentPane);
 	
 		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
-		//setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		
-		JLabel current = new JLabel("Current material:");
+		JLabel current = new JLabel("Current material:"); // current material text
 		current.setBounds(10,62,150,20);
 		contentPane.add(current);
 		
-		JLabel option1 = new JLabel("Option 1:");
+		JLabel option1 = new JLabel("Option 1:"); // option 1 text
 		option1.setBounds(155,11,150,20);
 		contentPane.add(option1);
 		
-		JLabel option2 = new JLabel("Option 2:");
+		JLabel option2 = new JLabel("Option 2:"); // option 2 text
 		option2.setBounds(315,11,150,20);
 		contentPane.add(option2);
 		
-		JLabel option3 = new JLabel("Option 3:");
+		JLabel option3 = new JLabel("Option 3:"); // option 3 text
 		option3.setBounds(460,11,150,20);
 		contentPane.add(option3);
 		
-		
+		// drop down box 1 
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Select","Halogen", "Incandescent", "LED", "CFL"}));
 		comboBox_1.setBounds(159, 53, 125,20);
 		contentPane.add(comboBox_1);
 		
+		// drop down box 2
 		JComboBox comboBox_2 = new JComboBox();
 		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Select","Halogen", "Incandescent","LED", "CFL"}));
 		comboBox_2.setBounds(301, 53, 125, 20);
 		contentPane.add(comboBox_2);
 		
-		
+		// drop down box 3
 		JComboBox comboBox_3 = new JComboBox();
 		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"Select","Halogen", "Incandescent", "LED", "CFL"}));
 		comboBox_3.setBounds(450, 53, 125,20);
 		contentPane.add(comboBox_3);
 		
-
+		// home button
 		JButton btnHome = new JButton("Home");
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -172,11 +157,7 @@ public class ComparingFrame extends JFrame {
 		btnHome.setBounds(650, 62, 125, 50);;
 		contentPane.add(btnHome);
 		
-		/*JToggleButton tglbtnCalc = new JToggleButton("Compute");
-		tglbtnCalc.setBounds(683, 123, 97, 25);;
-		contentPane.add(tglbtnCalc);*/
-		
-		
+		// installation cost labels
 		JLabel label = new JLabel("Installation cost:");
 		label.setBounds(155, 93, 125, 14);
 		contentPane.add(label);
@@ -190,6 +171,7 @@ public class ComparingFrame extends JFrame {
 		label_9.setBounds(446, 93, 125, 14);
 		contentPane.add(label_9);
 		
+		// cost per month labels
 		JLabel lblEstYearlyOperating = new JLabel("Cost per month:");
 		lblEstYearlyOperating.setBounds(10, 105, 150, 14);
 		contentPane.add(lblEstYearlyOperating);
@@ -286,6 +268,7 @@ public class ComparingFrame extends JFrame {
 		label_11.setBounds(446, 180, 150, 14);
 		contentPane.add(label_11);
 		
+		// action listener to change box data when new option is clicked (3rd column dropdown menu)
 		comboBox_3.addActionListener(new ActionListener () {
 			double savings; 
 			String print;
@@ -377,6 +360,7 @@ public class ComparingFrame extends JFrame {
 		    }
 		});
 		
+		// action listener to change box data when new option is clicked (2nd column dropdown menu)
 		comboBox_2.addActionListener(new ActionListener () {
 			double savings; 
 			String print;
@@ -468,6 +452,7 @@ public class ComparingFrame extends JFrame {
 		    }
 		});
 		
+		// action listener to change box data when new option is clicked (1st column dropdown menu)
 		comboBox_1.addActionListener(new ActionListener () {
 			double savings; 
 			String print;
