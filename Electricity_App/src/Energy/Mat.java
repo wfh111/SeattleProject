@@ -6,40 +6,36 @@ package Energy;
  */
 public class Mat {
 	
-	private double KwH;
+	private double watts; // watts of bulb
 	
-	private double price;
+	private double price; // price of bulb
 	
-	private Material type;
+	private double installCost; // installation cost
 	
-	private double installCost;
-	
-	public enum Material {
-		HALOGEN, INCANDESCENT, LED, CFL
-	}
+	private int amount; // number of bulbs 
 	
 	
-	public Mat(Material type, double KwH, double price, double installCost) {
-		this.KwH = KwH;
-		this.type = type;
+	public Mat(double watts, double price, int amount) {
+		this.watts = watts;
 		this.price = price;
-		this.installCost = installCost;
+		this.amount = amount;
+		this.installCost = price * amount;
 	}
 	
-	public double getKwH() {
-		return KwH;
+	public double getWatts() {
+		return watts;
 	}
 	
 	public double getPrice() {
 		return price;
 	}
 	
-	public Material getMaterialType() {
-		return type;
-	}
-	
 	public double getInstallCost() {
 		return installCost;
+	}
+	
+	public int getAmount() {
+		return amount;
 	}
 	
 	

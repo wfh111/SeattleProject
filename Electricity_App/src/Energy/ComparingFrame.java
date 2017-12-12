@@ -73,6 +73,10 @@ public class ComparingFrame extends JFrame {
 	private JTextField textField_10;
 	private JTextField textField_11;
 	private double costPerKWH = 0.1; 
+	
+	private static int previous_wattage = 65;
+	
+	private static int bulb_quantity = 6; // number of bulbs
 
 	/**
 	 * Launch the application.
@@ -228,7 +232,7 @@ public class ComparingFrame extends JFrame {
 		textField_11.setColumns(10);
 		textField_11.setBounds(10, 125, 125, 20);
 		double currAvg = calc.getAverage()*costPerKWH;
-		String avg = new Double(currAvg).toString();
+		String avg = String.format("%.2f", currAvg);
 		textField_11.setText("$"+avg);
 		contentPane.add(textField_11);
 		
@@ -285,6 +289,11 @@ public class ComparingFrame extends JFrame {
 		comboBox_3.addActionListener(new ActionListener () {
 			double savings; 
 			String print;
+			double curr_watts;
+    		double curr_price;
+    		Mat curr_mat;
+    		double cost_ratio;
+    		double cost_per_month;
 		    public void actionPerformed(ActionEvent e) {
 		        int indexChosen = comboBox_3.getSelectedIndex();
 		        textField_9.setEnabled(true);
@@ -296,36 +305,73 @@ public class ComparingFrame extends JFrame {
 		        		textField_10.setText("");
 		        	break;
 		        case 1:
-		        		System.out.println("Box 3 Chose Halogen");
-		        		textField_3.setText("$75.42");
-			        textField_9.setText("$3.57");
-			        savings = currAvg - 3.57;
-			        print = String.format("%.2f",savings);
-			        textField_10.setText(print);
+	        		System.out.println("Box 3 Chose Halogen");
+	        		curr_watts = 43;
+	        		curr_price = 2.50;
+	        		curr_mat = new Mat(curr_watts, curr_price, bulb_quantity);
+	        		print = String.format("%.2f",curr_mat.getInstallCost());
+	        		textField_3.setText(print);
+		        
+	        		cost_ratio = curr_watts / previous_wattage;
+	        		cost_per_month = currAvg * cost_ratio;
+	        		print = String.format("%.2f", cost_per_month);
+	        		textField_9.setText(print);
+	        		savings = currAvg - cost_per_month;
+	        		print = String.format("%.2f",savings);
+	        		textField_10.setText(print);
 		        	break;
 		        case 2:
-		        		System.out.println("Box 3 Chose Incandescent");
-		        		textField_3.setText("$64.78");
-			        textField_9.setText("$4.38");
-			        savings = currAvg - 4.38;
-			        print = String.format("%.2f",savings);
-			        textField_10.setText(print);
+		        	
+		        	System.out.println("Box 3 Chose Incandescent");
+	        		curr_watts = 60;
+	        		curr_price = 1.00;
+	        		curr_mat = new Mat(curr_watts, curr_price, bulb_quantity);
+	        		print = String.format("%.2f",curr_mat.getInstallCost());
+	        		textField_3.setText(print);
+		        
+	        		cost_ratio = curr_watts / previous_wattage;
+	        		cost_per_month = currAvg * cost_ratio;
+	        		print = String.format("%.2f", cost_per_month);
+	        		textField_9.setText(print);
+	        		savings = currAvg - cost_per_month;
+	        		print = String.format("%.2f",savings);
+	        		textField_10.setText(print);
+	        		
 		        	break;
 		        case 3:
-		        		System.out.println("Box 3 Chose LED");
-		        		textField_3.setText("$112.00");
-				    textField_9.setText("$4.57");
-				    savings = currAvg - 4.57;
-				    print = String.format("%.2f",savings);
-			        textField_10.setText(print);
+		        	
+		        	System.out.println("Box 3 Chose LED");
+	        		curr_watts = 12;
+	        		curr_price = 4.00;
+	        		curr_mat = new Mat(curr_watts, curr_price, bulb_quantity);
+	        		print = String.format("%.2f",curr_mat.getInstallCost());
+	        		textField_3.setText(print);
+		        
+	        		cost_ratio = curr_watts / previous_wattage;
+	        		cost_per_month = currAvg * cost_ratio;
+	        		print = String.format("%.2f", cost_per_month);
+	        		textField_9.setText(print);
+	        		savings = currAvg - cost_per_month;
+	        		print = String.format("%.2f",savings);
+	        		textField_10.setText(print);
+	        		
 		        	break;
 		        case 4:
-		        		System.out.println("Box 3 Chose CFL");
-		        		textField_3.setText("$55.67");
-				    textField_9.setText("$1.45");
-				    savings = currAvg - 1.45;
-				    print = String.format("%.2f",savings);
-			        textField_10.setText(print);
+		        	System.out.println("Box 3 Chose CFL");
+	        		curr_watts = 15;
+	        		curr_price = 3.00;
+	        		curr_mat = new Mat(curr_watts, curr_price, bulb_quantity);
+	        		print = String.format("%.2f",curr_mat.getInstallCost());
+	        		textField_3.setText(print);
+		        
+	        		cost_ratio = curr_watts / previous_wattage;
+	        		cost_per_month = currAvg * cost_ratio;
+	        		print = String.format("%.2f", cost_per_month);
+	        		textField_9.setText(print);
+	        		savings = currAvg - cost_per_month;
+	        		print = String.format("%.2f",savings);
+	        		textField_10.setText(print);
+	        		
 		        	break;
 		        }
 		    }
@@ -334,6 +380,11 @@ public class ComparingFrame extends JFrame {
 		comboBox_2.addActionListener(new ActionListener () {
 			double savings; 
 			String print;
+			double curr_watts;
+    		double curr_price;
+    		Mat curr_mat;
+    		double cost_ratio;
+    		double cost_per_month;
 		    public void actionPerformed(ActionEvent e) {
 		        int indexChosen = comboBox_2.getSelectedIndex();
 		        textField_2.setEnabled(true);
@@ -345,36 +396,73 @@ public class ComparingFrame extends JFrame {
 		        		textField_8.setText("");
 		        	break;
 		        case 1:
-		        		System.out.println("Box 2 Chose Halogen");
-		        		textField_2.setText("$75.42");
-			        textField_5.setText("$3.57");
-			        savings = currAvg - 3.57;
-			        print = String.format("%.2f",savings);
-			        textField_8.setText(print);
+	        		System.out.println("Box 2 Chose Halogen");
+	        		curr_watts = 43;
+	        		curr_price = 2.50;
+	        		curr_mat = new Mat(curr_watts, curr_price, bulb_quantity);
+	        		print = String.format("%.2f",curr_mat.getInstallCost());
+	        		textField_2.setText(print);
+		        
+	        		cost_ratio = curr_watts / previous_wattage;
+	        		cost_per_month = currAvg * cost_ratio;
+	        		print = String.format("%.2f", cost_per_month);
+	        		textField_5.setText(print);
+	        		savings = currAvg - cost_per_month;
+	        		print = String.format("%.2f",savings);
+	        		textField_8.setText(print);
 		        	break;
 		        case 2:
-		        		System.out.println("Box 2 Chose Incandescent");
-		        		textField_2.setText("$64.78");
-			        textField_5.setText("$4.38");
-			        savings = currAvg - 4.38;
-			        print = String.format("%.2f",savings);
-			        textField_8.setText(print);
+		        	
+		        	System.out.println("Box 2 Chose Incandescent");
+	        		curr_watts = 60;
+	        		curr_price = 1.00;
+	        		curr_mat = new Mat(curr_watts, curr_price, bulb_quantity);
+	        		print = String.format("%.2f",curr_mat.getInstallCost());
+	        		textField_2.setText(print);
+		        
+	        		cost_ratio = curr_watts / previous_wattage;
+	        		cost_per_month = currAvg * cost_ratio;
+	        		print = String.format("%.2f", cost_per_month);
+	        		textField_5.setText(print);
+	        		savings = currAvg - cost_per_month;
+	        		print = String.format("%.2f",savings);
+	        		textField_8.setText(print);
+	        		
 		        	break;
 		        case 3:
-		        		System.out.println("Box 2 Chose LED");
-		        		textField_2.setText("$112.00");
-				    textField_5.setText("$4.57");
-				    savings = currAvg - 4.57;
-				    print = String.format("%.2f",savings);
-			        textField_8.setText(print);
+		        	
+		        	System.out.println("Box 2 Chose LED");
+	        		curr_watts = 12;
+	        		curr_price = 4.00;
+	        		curr_mat = new Mat(curr_watts, curr_price, bulb_quantity);
+	        		print = String.format("%.2f",curr_mat.getInstallCost());
+	        		textField_2.setText(print);
+		        
+	        		cost_ratio = curr_watts / previous_wattage;
+	        		cost_per_month = currAvg * cost_ratio;
+	        		print = String.format("%.2f", cost_per_month);
+	        		textField_5.setText(print);
+	        		savings = currAvg - cost_per_month;
+	        		print = String.format("%.2f",savings);
+	        		textField_8.setText(print);
+	        		
 		        	break;
 		        case 4:
-		        		System.out.println("Box 2 Chose CFL");
-		        		textField_2.setText("$55.67");
-				    textField_5.setText("$1.45");
-				    savings = currAvg - 1.45;
-				    print = String.format("%.2f",savings);
-			        textField_8.setText(print);
+		        	System.out.println("Box 2 Chose CFL");
+	        		curr_watts = 15;
+	        		curr_price = 3.00;
+	        		curr_mat = new Mat(curr_watts, curr_price, bulb_quantity);
+	        		print = String.format("%.2f",curr_mat.getInstallCost());
+	        		textField_2.setText(print);
+		        
+	        		cost_ratio = curr_watts / previous_wattage;
+	        		cost_per_month = currAvg * cost_ratio;
+	        		print = String.format("%.2f", cost_per_month);
+	        		textField_5.setText(print);
+	        		savings = currAvg - cost_per_month;
+	        		print = String.format("%.2f",savings);
+	        		textField_8.setText(print);
+	        		
 		        	break;
 		        }
 		    }
@@ -383,47 +471,89 @@ public class ComparingFrame extends JFrame {
 		comboBox_1.addActionListener(new ActionListener () {
 			double savings; 
 			String print;
+			double curr_watts;
+    		double curr_price;
+    		Mat curr_mat;
+    		double cost_ratio;
+    		double cost_per_month;
 		    public void actionPerformed(ActionEvent e) {
 		        int indexChosen = comboBox_1.getSelectedIndex();
 		        textField_1.setEnabled(true);
 		        textField_4.setEnabled(true);
 		        switch (indexChosen) {
 		        case 0:
-			        	textField_1.setText("");
+		        		textField_1.setText("");
 		        		textField_4.setText("");
 		        		textField_7.setText("");
 		        	break;
 		        case 1:
-		        		System.out.println("Box 1 Chose Halogen");
-		        		textField_1.setText("$75.42");
-			        textField_4.setText("$3.57");
-			        savings = currAvg - 3.57;
-			        print = String.format("%.2f",savings);
-			        textField_7.setText(print);
+	        		System.out.println("Box 1 Chose Halogen");
+	        		curr_watts = 43;
+	        		curr_price = 2.50;
+	        		curr_mat = new Mat(curr_watts, curr_price, bulb_quantity);
+	        		print = String.format("%.2f",curr_mat.getInstallCost());
+	        		textField_1.setText(print);
+		        
+	        		cost_ratio = curr_watts / previous_wattage;
+	        		cost_per_month = currAvg * cost_ratio;
+	        		print = String.format("%.2f", cost_per_month);
+	        		textField_4.setText(print);
+	        		savings = currAvg - cost_per_month;
+	        		print = String.format("%.2f",savings);
+	        		textField_7.setText(print);
 		        	break;
 		        case 2:
-		        		System.out.println("Box 1 Chose Incandescent");
-		        		textField_1.setText("$64.78");
-			        textField_4.setText("$4.38");
-			        savings = currAvg - 4.38;
-			        print = String.format("%.2f",savings);
-			        textField_7.setText(print);
+		        	
+		        	System.out.println("Box 1 Chose Incandescent");
+	        		curr_watts = 60;
+	        		curr_price = 1.00;
+	        		curr_mat = new Mat(curr_watts, curr_price, bulb_quantity);
+	        		print = String.format("%.2f",curr_mat.getInstallCost());
+	        		textField_1.setText(print);
+		        
+	        		cost_ratio = curr_watts / previous_wattage;
+	        		cost_per_month = currAvg * cost_ratio;
+	        		print = String.format("%.2f", cost_per_month);
+	        		textField_4.setText(print);
+	        		savings = currAvg - cost_per_month;
+	        		print = String.format("%.2f",savings);
+	        		textField_7.setText(print);
+	        		
 		        	break;
 		        case 3:
-		        		System.out.println("Box 1 Chose LED");
-		        		textField_1.setText("$112.00");
-				    textField_4.setText("$4.57");
-				    savings = currAvg - 4.57;
-				    print = String.format("%.2f",savings);
-			        textField_7.setText(print);
+		        	
+		        	System.out.println("Box 1 Chose LED");
+	        		curr_watts = 12;
+	        		curr_price = 4.00;
+	        		curr_mat = new Mat(curr_watts, curr_price, bulb_quantity);
+	        		print = String.format("%.2f",curr_mat.getInstallCost());
+	        		textField_1.setText(print);
+		        
+	        		cost_ratio = curr_watts / previous_wattage;
+	        		cost_per_month = currAvg * cost_ratio;
+	        		print = String.format("%.2f", cost_per_month);
+	        		textField_4.setText(print);
+	        		savings = currAvg - cost_per_month;
+	        		print = String.format("%.2f",savings);
+	        		textField_7.setText(print);
+	        		
 		        	break;
 		        case 4:
-		        		System.out.println("Box 1 Chose CFL");
-		        		textField_1.setText("$55.67");
-				    textField_4.setText("$1.45");
-				    savings = currAvg - 1.45;
-				    print = String.format("%.2f",savings);
-			        textField_7.setText(print);
+		        	System.out.println("Box 1 Chose CFL");
+	        		curr_watts = 15;
+	        		curr_price = 3.00;
+	        		curr_mat = new Mat(curr_watts, curr_price, bulb_quantity);
+	        		print = String.format("%.2f",curr_mat.getInstallCost());
+	        		textField_1.setText(print);
+		        
+	        		cost_ratio = curr_watts / previous_wattage;
+	        		cost_per_month = currAvg * cost_ratio;
+	        		print = String.format("%.2f", cost_per_month);
+	        		textField_4.setText(print);
+	        		savings = currAvg - cost_per_month;
+	        		print = String.format("%.2f",savings);
+	        		textField_7.setText(print);
+	        		
 		        	break;
 		        }
 		    }
