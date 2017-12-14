@@ -45,6 +45,26 @@ public class EnergyHistoryTest {
 
 	/**
 	 * @author Walter Hanson
+	 * Test method for {@link Energy.EnergyHistory#add(java.lang.String, int, int)}.
+	 */
+	@Test
+	public void testAddSameMonthYear() {
+		myHistory.add("March", 2001, 122);
+		myHistory.add("January", 2012, 234);
+		myHistory.add("January", 2012, 342);
+		ArrayList<Integer> months = myHistory.getMonths();
+		ArrayList<Integer> years = myHistory.getYears();
+		ArrayList<Integer> kWh = myHistory.getKwh();
+		int month = months.get(1);
+		int year = years.get(1);
+		int kwh = kWh.get(1);
+		assertEquals(1, month);
+		assertEquals(2012, year);
+		assertEquals(342, kwh);
+	}
+	
+	/**
+	 * @author Walter Hanson
 	 * Test method for {@link Energy.EnergyHistory#delete(int)}.
 	 */
 	@Test

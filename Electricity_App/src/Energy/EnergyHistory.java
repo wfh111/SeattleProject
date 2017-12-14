@@ -32,8 +32,8 @@ public class EnergyHistory extends Observable{
 	public void add(String theMonth, int theYear, int theKwh) {
 		int monthNum = findMonthInt(theMonth);
 		int repeat = checkList(monthNum, theYear);
-		if(repeat > 0) {
-			myKwh.set(repeat - 1, theKwh);
+		if(repeat >= 0) {
+			myKwh.set(repeat, theKwh);
 		}else {
 			int idx = findLocation(monthNum, theYear);
 			myMonths.add(idx, monthNum);
@@ -47,14 +47,14 @@ public class EnergyHistory extends Observable{
 	 * @author Walter Hanson
 	 * Method to check if the month and year has already been added 
 	 * Precondition: monthNum and theYear is the month and year to check if they been already added
-	 * Postcondition: The idx of the month and year if already in the list or 0 if not in the list
+	 * Postcondition: The idx of the month and year if already in the list or -1 if not in the list
 	 */
 	private int checkList(int monthNum, int theYear) {
-		int idx = 0;
-		int count = 1;
+		int idx = -1;
+		int count = 0;
 		for(int el: myYears) {
 			if(el == theYear) {
-				if(myMonths.get(idx) == monthNum) {
+				if(myMonths.get(count) == monthNum) {
 					return count;
 				}
 			}
